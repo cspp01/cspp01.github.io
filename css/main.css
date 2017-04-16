@@ -1813,7 +1813,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff87;
+  background: #3e81ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3149,4 +3149,10 @@ body {
 }
 .menu-item-active a:after {
   background-color: #5a5858;
+}
+#rewardButton span {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
 }
