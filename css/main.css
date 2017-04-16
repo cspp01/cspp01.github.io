@@ -1616,7 +1616,7 @@ pre .javascript .function {
   -webkit-border-radius: 50%;
   -o-border-radius: 50%;
   -moz-border-radius: 50%;
-  border: 1px solid #00be45;
+  border: 1px solid #dd1031;
 }
 .site-author-name {
   margin: 0;
@@ -1698,7 +1698,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff49;
+  background: #edffff;
 }
 .links-of-blogroll {
   font-size: 13px;
