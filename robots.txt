@@ -1,0 +1,2 @@
+Sitemap: http://www.ccblog.win/sitemap.xml
+Sitemap: http://www.ccblog.win/baidusitemap.xml
