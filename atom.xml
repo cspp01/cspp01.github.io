@@ -54,13 +54,13 @@
     <link href="http://cspp01.github.io/2017/04/12/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>http://cspp01.github.io/2017/04/12/hexo个人博客搭建/</id>
     <published>2017-04-11T16:40:52.564Z</published>
-    <updated>2017-04-20T07:07:33.234Z</updated>
+    <updated>2017-04-20T07:14:42.863Z</updated>
     
     <content type="html"><![CDATA[<h3 id="叨的叨叨以叨叨，那是什么叨"><a href="#叨的叨叨以叨叨，那是什么叨" class="headerlink" title="叨的叨叨以叨叨，那是什么叨"></a>叨的叨叨以叨叨，那是什么叨</h3><p>该说啥呢。。。博客不是第一次写，但在自己搭建的博客上写文章的确是第一次。十分兴奋。看着自己辛苦搭建出来的博客，一点一点达到自己心目中的样子，这种感觉只有做过的人才可以体会到。如果你还在犹豫，那就别墨迹了。废话不多说。<br>搭建自己的博客，当时我查的时候好多人推荐用Wordpress，既然这么多人推荐，那我就不用，怎么滴。好吧被看穿了，其实是我太穷了，没钱租服务器。虽然好像也可以免费做出来，这个不太清楚，因为没太了解。就在我茶不思饭不想的时候，我发现了Hexo，这个真是太符合我了。利用github来部署静态博客，谁叫咱们就是干前端的呢。啥也不说了，立马开干。 </p>
 <h3 id="适合人群"><a href="#适合人群" class="headerlink" title="适合人群"></a>适合人群</h3><p>哈哈你来看这篇文章说明你就适合<br>使用windows的你们（其他系统差不多）</p>
 <h3 id="安装必要程序"><a href="#安装必要程序" class="headerlink" title="安装必要程序"></a>安装必要程序</h3><h4 id="安装GIT"><a href="#安装GIT" class="headerlink" title="安装GIT"></a>安装GIT</h4><p>到<a href="https://git-for-windows.github.io/" target="_blank" rel="external"> msysgit</a>下载好后， 下一步下一步执行安装即可。<br>什么，下载太慢了，我含泪告诉你人这一生不翻几次墙是干不了大事的。</p>
 <h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><p>到<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>下载，左边稳定版，右边最新版，根据需要下载。推荐稳定版。安装的话，下一步还得下一步 非常简单。</p>
-<p>####安装Hexo（我才是主人翁）<br>终于到我隆重出场了，鼠标右键任意位置，选择Git bash Here，输入npm 命令即可安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo -g</div></pre></td></tr></table></figure></p>
+<h4 id="安装Hexo（我才是主人翁）"><a href="#安装Hexo（我才是主人翁）" class="headerlink" title="安装Hexo（我才是主人翁）"></a>安装Hexo（我才是主人翁）</h4><p>终于到我隆重出场了，鼠标右键任意位置，选择Git bash Here，输入npm 命令即可安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo -g</div></pre></td></tr></table></figure></p>
 <p>好吧，我叫特简单。文件一般会安装到C:\Users\Administrator\AppData\Roaming\npm\node_modules下可通过下边npm命令具体查看：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm root -g</div></pre></td></tr></table></figure></p>
 <p>安装好了就可以随便找个你喜欢的位置建个名叫hexo的文件夹，在这个文件夹里右键选择Git bash Here，分别输入hexo init和npm install（初始化文件和安装依赖包）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure>
