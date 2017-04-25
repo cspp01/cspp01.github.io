@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ccblog.win/"/>
-  <updated>2017-04-20T14:30:29.863Z</updated>
+  <updated>2017-04-25T11:48:22.910Z</updated>
   <id>http://www.ccblog.win/</id>
   
   <author>
@@ -16,11 +16,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hsl颜色表示法</title>
+    <link href="http://www.ccblog.win/2017/03/19/css%E9%A2%9C%E8%89%B2%E8%A1%A8%E7%A4%BA%E7%A7%8D%E7%B1%BB/"/>
+    <id>http://www.ccblog.win/2017/03/19/css颜色表示种类/</id>
+    <published>2017-03-19T00:15:23.000Z</published>
+    <updated>2017-04-25T11:48:22.910Z</updated>
+    
+    <content type="html"><![CDATA[<p>css颜色表示法通常常用和最常见的三种<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background-color:red;</div><div class="line">background-color:<span class="comment">#ff0000;</span></div><div class="line">background-color:rgb(255,0,0);</div></pre></td></tr></table></figure></p>
+<p>hsl颜色表示法，不知大家用没用过，反正我到我写这篇博客之前一直没用过。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">backgroud-color:hsl(0,100%,54%);</div></pre></td></tr></table></figure></p>
+<p>是不是感觉写法和rgb很像，rgb分别代表三原色，hsl分别代表色调(h)，饱和度(s)，亮度(l)，了解颜色或用过ps（ps的三通道）的应该很了解，这种标准是目前运用最广的颜色系统之一。<br>h：取值（0~360）0和360表示红色，120表绿色，240表示蓝色；<br>s：0%~100%；<br>l：0%~100%；<br>如果想给他加透明，写法和rgb一毛一样，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">backgroud-color:hsla(0,100%,54%,.5);</div></pre></td></tr></table></figure></p>
+<p>不过由于是css3属性，浏览器必须支持css3才可以。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;css颜色表示法通常常用和最常见的三种&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/di
+    
+    </summary>
+    
+      <category term="css3" scheme="http://www.ccblog.win/categories/css3/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="颜色" scheme="http://www.ccblog.win/tags/%E9%A2%9C%E8%89%B2/"/>
+    
+      <category term="hsl" scheme="http://www.ccblog.win/tags/hsl/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo的next主题配置和优化</title>
-    <link href="http://www.ccblog.win/2017/04/14/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F/"/>
-    <id>http://www.ccblog.win/2017/04/14/hexo主题配置和修改样式/</id>
-    <published>2017-04-14T00:15:23.000Z</published>
-    <updated>2017-04-20T14:30:29.863Z</updated>
+    <link href="http://www.ccblog.win/2017/03/14/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F/"/>
+    <id>http://www.ccblog.win/2017/03/14/hexo主题配置和修改样式/</id>
+    <published>2017-03-14T00:15:23.000Z</published>
+    <updated>2017-04-20T14:40:27.893Z</updated>
     
     <content type="html"><![CDATA[<h2 id="继续叨叨叨"><a href="#继续叨叨叨" class="headerlink" title="继续叨叨叨"></a>继续叨叨叨</h2><p>上一篇介绍了hexo的安装和部署（还没部署的小伙伴<a href="http://www.ccblog.win/2017/04/11/hello-world">点这里</a>)，这篇咱们接着上篇介绍怎么应用主题next和优化next。</p>
 <h2 id="next主题"><a href="#next主题" class="headerlink" title="next主题"></a>next主题</h2><p>hexo的主题很多，但还是觉得next符合我的感觉，简洁大气，耐看。毕竟是博客，文章才是最主要的，花里胡哨的主题太宣兵夺主了。</p>
@@ -49,20 +81,20 @@
       <category term="hexo博客搭建" scheme="http://www.ccblog.win/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
       <category term="hexo" scheme="http://www.ccblog.win/tags/hexo/"/>
     
       <category term="next" scheme="http://www.ccblog.win/tags/next/"/>
-    
-      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
     
   </entry>
   
   <entry>
     <title>hexo个人博客搭建</title>
-    <link href="http://www.ccblog.win/2017/04/12/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    <id>http://www.ccblog.win/2017/04/12/hexo个人博客搭建/</id>
-    <published>2017-04-11T16:40:52.564Z</published>
-    <updated>2017-04-20T07:28:18.809Z</updated>
+    <link href="http://www.ccblog.win/2017/03/12/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <id>http://www.ccblog.win/2017/03/12/hexo个人博客搭建/</id>
+    <published>2017-03-12T00:15:23.000Z</published>
+    <updated>2017-04-20T14:41:37.634Z</updated>
     
     <content type="html"><![CDATA[<h3 id="叨的叨叨以叨叨，那是什么叨"><a href="#叨的叨叨以叨叨，那是什么叨" class="headerlink" title="叨的叨叨以叨叨，那是什么叨"></a>叨的叨叨以叨叨，那是什么叨</h3><p>该说啥呢。。。博客不是第一次写，但在自己搭建的博客上写文章的确是第一次。十分兴奋。看着自己辛苦搭建出来的博客，一点一点达到自己心目中的样子，这种感觉只有做过的人才可以体会到。如果你还在犹豫，那就别墨迹了。废话不多说。<br>搭建自己的博客，当时我查的时候好多人推荐用Wordpress，既然这么多人推荐，那我就不用，怎么滴。好吧被看穿了，其实是我太穷了，没钱租服务器。虽然好像也可以免费做出来，这个不太清楚，因为没太了解。就在我茶不思饭不想的时候，我发现了Hexo，这个真是太符合我了。利用github来部署静态博客，谁叫咱们就是干前端的呢。啥也不说了，立马开干。 </p>
 <h3 id="适合人群"><a href="#适合人群" class="headerlink" title="适合人群"></a>适合人群</h3><p>哈哈你来看这篇文章说明你就适合<br>使用windows的你们（其他系统差不多）</p>
@@ -113,10 +145,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://www.ccblog.win/2017/04/11/hello-world/"/>
-    <id>http://www.ccblog.win/2017/04/11/hello-world/</id>
-    <published>2017-04-11T12:38:44.751Z</published>
-    <updated>2017-04-16T06:56:06.649Z</updated>
+    <link href="http://www.ccblog.win/2017/03/01/hello-world/"/>
+    <id>http://www.ccblog.win/2017/03/01/hello-world/</id>
+    <published>2017-03-01T00:15:23.000Z</published>
+    <updated>2017-04-20T14:41:59.983Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
