@@ -48,34 +48,6 @@
   </entry>
   
   <entry>
-    <title>hexo</title>
-    <link href="http://www.ccblog.win/2017/03/14/1/"/>
-    <id>http://www.ccblog.win/2017/03/14/1/</id>
-    <published>2017-03-14T00:15:23.000Z</published>
-    <updated>2017-04-27T13:55:47.524Z</updated>
-    
-    <content type="html"><![CDATA[<p>123</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;123&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="hexo博客搭建" scheme="http://www.ccblog.win/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="hexo" scheme="http://www.ccblog.win/tags/hexo/"/>
-    
-      <category term="next" scheme="http://www.ccblog.win/tags/next/"/>
-    
-      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
     <title>hexo的next主题配置和优化</title>
     <link href="http://www.ccblog.win/2017/03/14/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F/"/>
     <id>http://www.ccblog.win/2017/03/14/hexo主题配置和修改样式/</id>
@@ -109,11 +81,11 @@
       <category term="hexo博客搭建" scheme="http://www.ccblog.win/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
       <category term="hexo" scheme="http://www.ccblog.win/tags/hexo/"/>
     
       <category term="next" scheme="http://www.ccblog.win/tags/next/"/>
-    
-      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
     
   </entry>
   
