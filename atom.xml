@@ -548,11 +548,11 @@
     
       <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
     
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
       <category term="颜色" scheme="http://www.ccblog.win/tags/%E9%A2%9C%E8%89%B2/"/>
     
       <category term="hsl" scheme="http://www.ccblog.win/tags/hsl/"/>
-    
-      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
     
   </entry>
   
@@ -603,7 +603,7 @@
     <link href="http://www.ccblog.win/2017/03/12/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>http://www.ccblog.win/2017/03/12/hexo个人博客搭建/</id>
     <published>2017-03-12T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.328Z</updated>
+    <updated>2017-05-31T13:46:59.217Z</updated>
     
     <content type="html"><![CDATA[<h3 id="叨的叨叨以叨叨，那是什么叨"><a href="#叨的叨叨以叨叨，那是什么叨" class="headerlink" title="叨的叨叨以叨叨，那是什么叨"></a>叨的叨叨以叨叨，那是什么叨</h3><p>该说啥呢。。。博客不是第一次写，但在自己搭建的博客上写文章的确是第一次。十分兴奋。看着自己辛苦搭建出来的博客，一点一点达到自己心目中的样子，这种感觉只有做过的人才可以体会到。如果你还在犹豫，那就别墨迹了。废话不多说。<br>搭建自己的博客，当时我查的时候好多人推荐用Wordpress，既然这么多人推荐，那我就不用，怎么滴。好吧被看穿了，其实是我太穷了，没钱租服务器。虽然好像也可以免费做出来，这个不太清楚，因为没太了解。就在我茶不思饭不想的时候，我发现了Hexo，这个真是太符合我了。利用github来部署静态博客，谁叫咱们就是干前端的呢。啥也不说了，立马开干。 </p>
 <h3 id="适合人群"><a href="#适合人群" class="headerlink" title="适合人群"></a>适合人群</h3><p>哈哈你来看这篇文章说明你就适合<br>使用windows的你们（其他系统差不多）</p>
@@ -622,6 +622,7 @@
 <h4 id="SSH密钥"><a href="#SSH密钥" class="headerlink" title="SSH密钥"></a>SSH密钥</h4><h5 id="生成SSH密钥"><a href="#生成SSH密钥" class="headerlink" title="生成SSH密钥"></a>生成SSH密钥</h5><p>还是右键点击Git base Here输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"你的邮箱地址"</span></div></pre></td></tr></table></figure></p>
 <p>按回车，按回车，按回车，你得按3边，成功，到C:\Users\Administrator.ssh下，可以看到两个文件，id_rsa是密钥 ，id_rsa.pub是公钥。</p>
 <h5 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h5><p>回到github选择setting-&gt;SSH and GPG keys-&gt;右上角New SSH key<br><img src="http://ooa3lxrpg.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170417214638.png" alt="Alt text"><br><img src="http://ooa3lxrpg.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170417214722.jpg" alt="Alt text"><br><img src="http://ooa3lxrpg.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170417215217.png" alt="Alt text"><br>title随便了，最好有意义点。打开刚才的id_rsa.pub，Ctrl+a-&gt;Ctrl+c，粘贴到key，Add SSH key，OK。</p>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"你的github用户名"</span></div><div class="line">git config --global user.email  <span class="string">"你的邮箱"</span></div></pre></td></tr></table></figure>
 <h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><h4 id="config-yml配置文件"><a href="#config-yml配置文件" class="headerlink" title="_config.yml配置文件"></a>_config.yml配置文件</h4><p>这个文件在hexo根目录下，打开_config.yml配置文件，找到下面（在最下面）修改为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: 仓库地址</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
 <p>注意repo是你刚才新建的仓库的地址,复制粘贴上去就好OK了。还有注意冒号后面的空格必须。</p>
 <h4 id="hexo部署"><a href="#hexo部署" class="headerlink" title="hexo部署"></a>hexo部署</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure>
