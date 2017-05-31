@@ -1,0 +1,1043 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css,css3,html," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="cc" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前端填坑路1.外边距合并例子：1.子元素设置margin-top;父元素不设置margin-top;,但父元素会出现上边距，子元素相对父元素却不会出现。 2.同级元素上面那个设置margin-bottom：下面那个设置margin-top:可是中间的间距却不是两个边距的和。原因：这个是css默认行为，因为元素没有找到另一个那个元素的边界，只在垂直方向的外边距合并，合并为边距中最大的那个，水平方向的">
+<meta name="keywords" content="css,css3,html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css,html填坑路">
+<meta property="og:url" content="http://www.ccblog.win/2017/05/05/html,css填坑路/index.html">
+<meta property="og:site_name" content="cc">
+<meta property="og:description" content="前端填坑路1.外边距合并例子：1.子元素设置margin-top;父元素不设置margin-top;,但父元素会出现上边距，子元素相对父元素却不会出现。 2.同级元素上面那个设置margin-bottom：下面那个设置margin-top:可是中间的间距却不是两个边距的和。原因：这个是css默认行为，因为元素没有找到另一个那个元素的边界，只在垂直方向的外边距合并，合并为边距中最大的那个，水平方向的">
+<meta property="og:updated_time" content="2017-05-08T07:24:55.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css,html填坑路">
+<meta name="twitter:description" content="前端填坑路1.外边距合并例子：1.子元素设置margin-top;父元素不设置margin-top;,但父元素会出现上边距，子元素相对父元素却不会出现。 2.同级元素上面那个设置margin-bottom：下面那个设置margin-top:可是中间的间距却不是两个边距的和。原因：这个是css默认行为，因为元素没有找到另一个那个元素的边界，只在垂直方向的外边距合并，合并为边距中最大的那个，水平方向的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '148WKKLBJ2',
+      apiKey: '1b27867f0ba7ad358543a84d6d30bcb3',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for blog","hits_empty":"Good embarrassed, search less than '${query}'.","hits_stats":"${hits} results found in ${time} ms."}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.ccblog.win/2017/05/05/html,css填坑路/"/>
+
+
+
+
+
+  <title> css,html填坑路 | cc </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4916ace961b16da7c6ce329a540b28f5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.ccblog.win/2017/05/05/html,css填坑路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ooa3lxrpg.bkt.clouddn.com/b.jpg?imageView2/1/w/120/h/120/q/75">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                css,html填坑路
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-05T08:15:23+08:00">
+                2017-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/htmlcss/" itemprop="url" rel="index">
+                    <span itemprop="name">htmlcss</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/05/05/html,css填坑路/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/05/html,css填坑路/" class="leancloud_visitors" data-flag-title="css,html填坑路">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前端填坑路"><a href="#前端填坑路" class="headerlink" title="前端填坑路"></a>前端填坑路</h3><h4 id="1-外边距合并"><a href="#1-外边距合并" class="headerlink" title="1.外边距合并"></a>1.外边距合并</h4><p>例子：<br>1.子元素设置margin-top;父元素不设置margin-top;,但父元素会出现上边距，子元素相对父元素却不会出现。<br> 2.同级元素上面那个设置margin-bottom：下面那个设置margin-top:可是中间的间距却不是两个边距的和。<br>原因：<br>这个是css默认行为，因为元素没有找到另一个那个元素的边界，只在垂直方向的外边距合并，合并为边距中最大的那个，水平方向的不会，目的只是为了文档美观性（如：在文段落中间如果不合并就会出现两倍的边距，看起来不美观。），而且只发生在文档流中的块级元素，如果是行内块，浮动，和定位则不会合并。<br>解决：<br>1.1父元素设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">overflow:hidden/auto;</div></pre></td></tr></table></figure></p>
+<p>1.2父元素设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">border:1px solid <span class="comment">#;</span></div></pre></td></tr></table></figure></p>
+<p>1.3用padding代替<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">padding:</div></pre></td></tr></table></figure></p>
+<p>1.2兄弟间形成BFC</p>
+<h4 id="2-img间隙"><a href="#2-img间隙" class="headerlink" title="2.img间隙"></a>2.img间隙</h4><p>例子：<br>一个div中包含img图像时，图像最下面和div边框会有一些间隙。<br>原因：<br>由于html，css都是外国人发明的，所以默认字体是英文，而英文最好的展现方式是vertical-align:baseline;而img是行内块元素，所以默认垂直对齐方式也为vertical-align:baseline;，所以会出现间隙；<br>解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vertical-align:middle/bottom;</div></pre></td></tr></table></figure></p>
+<h4 id="3-行内块水平方向之间的间隔"><a href="#3-行内块水平方向之间的间隔" class="headerlink" title="3.行内块水平方向之间的间隔"></a>3.行内块水平方向之间的间隔</h4><p>列子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"display:inline-block"</span>&gt;1&lt;/div&gt;</div><div class="line">&lt;div style=<span class="string">"display:inline-block"</span>&gt;2&lt;/div&gt;</div><div class="line">&lt;div style=<span class="string">"display:inline-block"</span>&gt;3&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>原因：<br>行内块也有行内元素的特性，所以浏览器把换行解析为一个空格。<br>解决：<br>1.不换行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"display:inline-block"</span>&gt;1&lt;/div&gt;&lt;div style=<span class="string">"display:inline-block"</span>&gt;2&lt;/div&gt;&lt;div style=<span class="string">"display:inline-block"</span>&gt;3&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>2.margin设负值，负回去<br>3.把父元素的font-size:设为0;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"font-size:0;"</span>&gt;</div><div class="line">	&lt;div style=<span class="string">"display:inline-block"</span>&gt;1&lt;/div&gt;</div><div class="line">	&lt;div style=<span class="string">"display:inline-block"</span>&gt;2&lt;/div&gt;</div><div class="line">	&lt;div style=<span class="string">"display:inline-block"</span>&gt;3&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="4-p标签不能放块级元素"><a href="#4-p标签不能放块级元素" class="headerlink" title="4.p标签不能放块级元素"></a>4.p标签不能放块级元素</h4><p>列子：<br>记得刚开始敲代码时就把div放进p标签里去了，后来在css中通过p标签找div却找不到，f12后才发现div自动被解析到p外面去了。才知道了p不能放块级元素。<br>解决：<br>不呢个解决，反正就不能放。</p>
+<h4 id="5-行内元素设置margin-top-margin-bottom-无效"><a href="#5-行内元素设置margin-top-margin-bottom-无效" class="headerlink" title="5.行内元素设置margin-top;margin-bottom;无效"></a>5.行内元素设置margin-top;margin-bottom;无效</h4><p>就是无效，记住就行。</p>
+<h4 id="6-塌陷"><a href="#6-塌陷" class="headerlink" title="6.塌陷"></a>6.塌陷</h4><p>列子：<br>下边列子ul没高度，这就是塌陷了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li style=<span class="string">"float:left;width:200px,height:200px"</span>&gt;&lt;/li&gt;</div><div class="line">	&lt;li style=<span class="string">"float:left;width:200px,height:200px"</span>&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p>原因：<br>li设为浮动后，脱离文档流，所以这时候ul找不见它的子元素li了，所以没高度了。<br>解决：这个问题太常见了，但ul没设置背景或边框也很容易被忽略。解决方法比较多，下面只列了最常使用的方法，其他方法可查看我另一篇介绍关于塌陷的博文。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">ul:after&#123;</div><div class="line">	content:<span class="string">''</span>;</div><div class="line">	display:table;</div><div class="line">	clear:both;</div><div class="line">&#125;</div><div class="line">ul&#123;</div><div class="line">	zoom:1/*为了兼容低版本ie*/</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li style=<span class="string">"float:left;width:200px,height:200px"</span>&gt;&lt;/li&gt;</div><div class="line">	&lt;li style=<span class="string">"float:left;width:200px,height:200px"</span>&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="7-opacity-0-背景内容都会透明"><a href="#7-opacity-0-背景内容都会透明" class="headerlink" title="7.opacity:0;背景内容都会透明"></a>7.opacity:0;背景内容都会透明</h4><p>列子：<br>最常见的就是弹出框，如果父元素背景设置opacity:0;它的所有子元素也会透明。<br>原因：<br>opacity:属性使然。<br>解决：<br>1.背景和子元素分离.<br>2.背景透明使用rgba();</p>
+<h4 id="8-父元素设置display-none-，子元素设置position-fixed-也看不到。"><a href="#8-父元素设置display-none-，子元素设置position-fixed-也看不到。" class="headerlink" title="8.父元素设置display:none;，子元素设置position:fixed;也看不到。"></a>8.父元素设置display:none;，子元素设置position:fixed;也看不到。</h4><p>毕竟就算脱离文档，也不会脱离父元素。还是受父元素影响</p>
+<h4 id="9-label-for-””放a标签里或外面，for指向单选或多选框，点label却点不到。"><a href="#9-label-for-””放a标签里或外面，for指向单选或多选框，点label却点不到。" class="headerlink" title="9.label for=””放a标签里或外面，for指向单选或多选框，点label却点不到。"></a>9.label for=””放a标签里或外面，for指向单选或多选框，点label却点不到。</h4><p>背景：<br>可能有人会说你为什么会这么做，感觉没必要。<br>其实我当时是想试着用a标签指向不同的id,看可不可以做个选项卡，没想到点不同的a标签确实可以在设置了overflow:hidden;的div框里显示不同的选项，视觉上很像选项卡。最后就剩点不同的a标签，给a标签加个选中状态了，当时想的是用input的伪类:checked来做，于是就出现了上面的坑。<br>原因：<br>不管怎样，点的都是a标签。<br>解决：<br>没办法，最后只能不用a标签指向id来做，都使用了::checked来做。</p>
+<h4 id="10-子元素中有设置了position-absolute-的，其他子元素没法到设置了position-absolute-的上面"><a href="#10-子元素中有设置了position-absolute-的，其他子元素没法到设置了position-absolute-的上面" class="headerlink" title="10.子元素中有设置了position:absolute;的，其他子元素没法到设置了position:absolute;的上面"></a>10.子元素中有设置了position:absolute;的，其他子元素没法到设置了position:absolute;的上面</h4><p>本身absolute就会提高层级，而z-index又是针对定位元素的，所以只能把其他元素设为相对定位，然后使用z-index来提高层级。</p>
+<h4 id="11-加css3过渡效果，如果是width或height，过渡到的状态不能设为auto"><a href="#11-加css3过渡效果，如果是width或height，过渡到的状态不能设为auto" class="headerlink" title="11.加css3过渡效果，如果是width或height，过渡到的状态不能设为auto"></a>11.加css3过渡效果，如果是width或height，过渡到的状态不能设为auto</h4><p>列子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	width:100px;</div><div class="line">	height:100px;</div><div class="line">	transition-property:height;</div><div class="line">	transition-duration:2s;</div><div class="line">&#125;</div><div class="line">div:hover&#123;</div><div class="line">	height:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解决：<br>设固定数值的宽高。</p>
+<h4 id="12-给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）"><a href="#12-给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）" class="headerlink" title="12.给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）"></a>12.给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）</h4><p>原因：<br>a标签href为空,为空会重新刷新页面，使得点击无效果。<br>解决：<br>href=”javascript:void(0);”或href=”#”;</p>
+<h4 id="持续总结更新中。。。。。。"><a href="#持续总结更新中。。。。。。" class="headerlink" title="持续总结更新中。。。。。。"></a>持续总结更新中。。。。。。</h4><p>以上都是本人在实际操作中遇到的坑，这些坑对于有些人可能不是坑。但对于我来说是，毕竟每个人遇到的坑相对的都不一样。希望这些坑的解决方式方法对你有所帮助。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>我是来打家劫舍的，还不快速速交出银两。</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ooa3lxrpg.bkt.clouddn.com/wx.jpg?imageView2/2/w/180" alt="cc WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ooa3lxrpg.bkt.clouddn.com/zfb.jpg?imageView2/2/w/180" alt="cc Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/css3/" rel="tag"># css3</a>
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/31/jquery显示隐藏常用方式性能测试报告/" rel="next" title="jquery显示隐藏常用方式性能测试报告">
+                <i class="fa fa-chevron-left"></i> jquery显示隐藏常用方式性能测试报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/05/利用css边框做出三角形,梯形/" rel="prev" title="利用css边框做出三角形,梯形">
+                利用css边框做出三角形,梯形 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ooa3lxrpg.bkt.clouddn.com/b.jpg?imageView2/1/w/120/h/120/q/75"
+               alt="cc" />
+          <p class="site-author-name" itemprop="name">cc</p>
+           
+              <p class="site-description motion-element" itemprop="description">求知若饥 虚心若愚</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="https://github.com/cspp01" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="http://weibo.com/5262373626/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="http://douban.com/people/160374034/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a rel="external nofollow" href="http://www.zhihu.com/people/cc-chen-4-85" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/cspp01" rel="external nofollow" title="jsplugin" target="_blank">jsplugin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端填坑路"><span class="nav-number">1.</span> <span class="nav-text">前端填坑路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-外边距合并"><span class="nav-number">1.1.</span> <span class="nav-text">1.外边距合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-img间隙"><span class="nav-number">1.2.</span> <span class="nav-text">2.img间隙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-行内块水平方向之间的间隔"><span class="nav-number">1.3.</span> <span class="nav-text">3.行内块水平方向之间的间隔</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-p标签不能放块级元素"><span class="nav-number">1.4.</span> <span class="nav-text">4.p标签不能放块级元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-行内元素设置margin-top-margin-bottom-无效"><span class="nav-number">1.5.</span> <span class="nav-text">5.行内元素设置margin-top;margin-bottom;无效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-塌陷"><span class="nav-number">1.6.</span> <span class="nav-text">6.塌陷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-opacity-0-背景内容都会透明"><span class="nav-number">1.7.</span> <span class="nav-text">7.opacity:0;背景内容都会透明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-父元素设置display-none-，子元素设置position-fixed-也看不到。"><span class="nav-number">1.8.</span> <span class="nav-text">8.父元素设置display:none;，子元素设置position:fixed;也看不到。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-label-for-””放a标签里或外面，for指向单选或多选框，点label却点不到。"><span class="nav-number">1.9.</span> <span class="nav-text">9.label for=””放a标签里或外面，for指向单选或多选框，点label却点不到。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-子元素中有设置了position-absolute-的，其他子元素没法到设置了position-absolute-的上面"><span class="nav-number">1.10.</span> <span class="nav-text">10.子元素中有设置了position:absolute;的，其他子元素没法到设置了position:absolute;的上面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-加css3过渡效果，如果是width或height，过渡到的状态不能设为auto"><span class="nav-number">1.11.</span> <span class="nav-text">11.加css3过渡效果，如果是width或height，过渡到的状态不能设为auto</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）"><span class="nav-number">1.12.</span> <span class="nav-text">12.给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#持续总结更新中。。。。。。"><span class="nav-number">1.13.</span> <span class="nav-text">持续总结更新中。。。。。。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cc</span>
+</div>
+
+
+<div class="powered-by">
+  Exclusive blog, this world is mine. <a rel="external nofollow" class="theme-link" href="https://hexo.io"></a>
+</div>
+
+<div class="theme-info">
+  cc
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "6f0492a87f74476e9df370e5e7ce2270",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("rRxCAb8Kk2bhhTQJInFKaY4v-gzGzoHsz", "eEp5YWpvXhpv3Jvheh4bHCfG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

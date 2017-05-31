@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ccblog.win/"/>
-  <updated>2017-04-25T11:48:22.910Z</updated>
+  <updated>2017-05-31T12:39:08.161Z</updated>
   <id>http://www.ccblog.win/</id>
   
   <author>
@@ -16,11 +16,520 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>jquery显示隐藏常用方式性能测试报告</title>
+    <link href="http://www.ccblog.win/2017/05/31/jquery%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E5%B8%B8%E7%94%A8%E6%96%B9%E5%BC%8F%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"/>
+    <id>http://www.ccblog.win/2017/05/31/jquery显示隐藏常用方式性能测试报告/</id>
+    <published>2017-05-31T12:30:23.000Z</published>
+    <updated>2017-05-31T12:39:08.161Z</updated>
+    
+    <content type="html"><![CDATA[<p>其实我一直就听别人说如果要显示隐藏尽量不要用hide()和show(),其实一直也没实际测试过，因为自己想当然的也以为，毕竟hide()和show()jquery底层要经过不少判断。今天不知怎么得对他们的性能一直很在意，于是就简单做了如下测试</p>
+<p>下面测试了对10000个相同div节点的显示隐藏，测试方法使用了console.time()和console.timeEnd,测试浏览器为谷歌（其它的还没测试）</p>
+<p>先来hide()和show()的测试截图</p>
+<p><img src="http://ooa3lxrpg.bkt.clouddn.com/.hide.png" alt="Alt text"></p>
+<p>还好，没想象中那么差</p>
+<p>addClass()和removeClass()的测试截图</p>
+<p><img src="http://ooa3lxrpg.bkt.clouddn.com/内网通截图20170531200610.png" alt="Alt text"></p>
+<p>也没比上面的好多少吗</p>
+<p>.css({‘display’:’none’})和.css({‘display’:’block’})的测试截图</p>
+<p><img src="http://ooa3lxrpg.bkt.clouddn.com/.css.png" alt="Alt text"></p>
+<p>也不错</p>
+<p>toggle()的测试截图</p>
+<p><img src="http://ooa3lxrpg.bkt.clouddn.com/toggle.png" alt="Alt text"></p>
+<p>好吧，果断抛弃你</p>
+<p>从上面的测试来看hide()和show()相对于其它来看确实性能上会差点，但也没想象中那么差，其实一开始只是测试的对一个节点的显示隐藏，由于差别太小（但其实也可以发现hide()和show()性能会差点），所以多加了些节点来测试的。<br>所以hide()和show()其实也是可以放心实用的,但总的来说还是使用addClass可能会更好点。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;其实我一直就听别人说如果要显示隐藏尽量不要用hide()和show(),其实一直也没实际测试过，因为自己想当然的也以为，毕竟hide()和show()jquery底层要经过不少判断。今天不知怎么得对他们的性能一直很在意，于是就简单做了如下测试&lt;/p&gt;
+&lt;p&gt;下面测试了对10
+    
+    </summary>
+    
+      <category term="jquery" scheme="http://www.ccblog.win/categories/jquery/"/>
+    
+    
+      <category term="jquery" scheme="http://www.ccblog.win/tags/jquery/"/>
+    
+      <category term="javascript" scheme="http://www.ccblog.win/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css,html填坑路</title>
+    <link href="http://www.ccblog.win/2017/05/05/html,css%E5%A1%AB%E5%9D%91%E8%B7%AF/"/>
+    <id>http://www.ccblog.win/2017/05/05/html,css填坑路/</id>
+    <published>2017-05-05T00:15:23.000Z</published>
+    <updated>2017-05-08T07:24:55.329Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前端填坑路"><a href="#前端填坑路" class="headerlink" title="前端填坑路"></a>前端填坑路</h3><h4 id="1-外边距合并"><a href="#1-外边距合并" class="headerlink" title="1.外边距合并"></a>1.外边距合并</h4><p>例子：<br>1.子元素设置margin-top;父元素不设置margin-top;,但父元素会出现上边距，子元素相对父元素却不会出现。<br> 2.同级元素上面那个设置margin-bottom：下面那个设置margin-top:可是中间的间距却不是两个边距的和。<br>原因：<br>这个是css默认行为，因为元素没有找到另一个那个元素的边界，只在垂直方向的外边距合并，合并为边距中最大的那个，水平方向的不会，目的只是为了文档美观性（如：在文段落中间如果不合并就会出现两倍的边距，看起来不美观。），而且只发生在文档流中的块级元素，如果是行内块，浮动，和定位则不会合并。<br>解决：<br>1.1父元素设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">overflow:hidden/auto;</div></pre></td></tr></table></figure></p>
+<p>1.2父元素设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">border:1px solid <span class="comment">#;</span></div></pre></td></tr></table></figure></p>
+<p>1.3用padding代替<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">padding:</div></pre></td></tr></table></figure></p>
+<p>1.2兄弟间形成BFC</p>
+<h4 id="2-img间隙"><a href="#2-img间隙" class="headerlink" title="2.img间隙"></a>2.img间隙</h4><p>例子：<br>一个div中包含img图像时，图像最下面和div边框会有一些间隙。<br>原因：<br>由于html，css都是外国人发明的，所以默认字体是英文，而英文最好的展现方式是vertical-align:baseline;而img是行内块元素，所以默认垂直对齐方式也为vertical-align:baseline;，所以会出现间隙；<br>解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vertical-align:middle/bottom;</div></pre></td></tr></table></figure></p>
+<h4 id="3-行内块水平方向之间的间隔"><a href="#3-行内块水平方向之间的间隔" class="headerlink" title="3.行内块水平方向之间的间隔"></a>3.行内块水平方向之间的间隔</h4><p>列子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"display:inline-block"</span>&gt;1&lt;/div&gt;</div><div class="line">&lt;div style=<span class="string">"display:inline-block"</span>&gt;2&lt;/div&gt;</div><div class="line">&lt;div style=<span class="string">"display:inline-block"</span>&gt;3&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>原因：<br>行内块也有行内元素的特性，所以浏览器把换行解析为一个空格。<br>解决：<br>1.不换行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"display:inline-block"</span>&gt;1&lt;/div&gt;&lt;div style=<span class="string">"display:inline-block"</span>&gt;2&lt;/div&gt;&lt;div style=<span class="string">"display:inline-block"</span>&gt;3&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>2.margin设负值，负回去<br>3.把父元素的font-size:设为0;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"font-size:0;"</span>&gt;</div><div class="line">	&lt;div style=<span class="string">"display:inline-block"</span>&gt;1&lt;/div&gt;</div><div class="line">	&lt;div style=<span class="string">"display:inline-block"</span>&gt;2&lt;/div&gt;</div><div class="line">	&lt;div style=<span class="string">"display:inline-block"</span>&gt;3&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="4-p标签不能放块级元素"><a href="#4-p标签不能放块级元素" class="headerlink" title="4.p标签不能放块级元素"></a>4.p标签不能放块级元素</h4><p>列子：<br>记得刚开始敲代码时就把div放进p标签里去了，后来在css中通过p标签找div却找不到，f12后才发现div自动被解析到p外面去了。才知道了p不能放块级元素。<br>解决：<br>不呢个解决，反正就不能放。</p>
+<h4 id="5-行内元素设置margin-top-margin-bottom-无效"><a href="#5-行内元素设置margin-top-margin-bottom-无效" class="headerlink" title="5.行内元素设置margin-top;margin-bottom;无效"></a>5.行内元素设置margin-top;margin-bottom;无效</h4><p>就是无效，记住就行。</p>
+<h4 id="6-塌陷"><a href="#6-塌陷" class="headerlink" title="6.塌陷"></a>6.塌陷</h4><p>列子：<br>下边列子ul没高度，这就是塌陷了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li style=<span class="string">"float:left;width:200px,height:200px"</span>&gt;&lt;/li&gt;</div><div class="line">	&lt;li style=<span class="string">"float:left;width:200px,height:200px"</span>&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p>原因：<br>li设为浮动后，脱离文档流，所以这时候ul找不见它的子元素li了，所以没高度了。<br>解决：这个问题太常见了，但ul没设置背景或边框也很容易被忽略。解决方法比较多，下面只列了最常使用的方法，其他方法可查看我另一篇介绍关于塌陷的博文。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">ul:after&#123;</div><div class="line">	content:<span class="string">''</span>;</div><div class="line">	display:table;</div><div class="line">	clear:both;</div><div class="line">&#125;</div><div class="line">ul&#123;</div><div class="line">	zoom:1/*为了兼容低版本ie*/</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li style=<span class="string">"float:left;width:200px,height:200px"</span>&gt;&lt;/li&gt;</div><div class="line">	&lt;li style=<span class="string">"float:left;width:200px,height:200px"</span>&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="7-opacity-0-背景内容都会透明"><a href="#7-opacity-0-背景内容都会透明" class="headerlink" title="7.opacity:0;背景内容都会透明"></a>7.opacity:0;背景内容都会透明</h4><p>列子：<br>最常见的就是弹出框，如果父元素背景设置opacity:0;它的所有子元素也会透明。<br>原因：<br>opacity:属性使然。<br>解决：<br>1.背景和子元素分离.<br>2.背景透明使用rgba();</p>
+<h4 id="8-父元素设置display-none-，子元素设置position-fixed-也看不到。"><a href="#8-父元素设置display-none-，子元素设置position-fixed-也看不到。" class="headerlink" title="8.父元素设置display:none;，子元素设置position:fixed;也看不到。"></a>8.父元素设置display:none;，子元素设置position:fixed;也看不到。</h4><p>毕竟就算脱离文档，也不会脱离父元素。还是受父元素影响</p>
+<h4 id="9-label-for-””放a标签里或外面，for指向单选或多选框，点label却点不到。"><a href="#9-label-for-””放a标签里或外面，for指向单选或多选框，点label却点不到。" class="headerlink" title="9.label for=””放a标签里或外面，for指向单选或多选框，点label却点不到。"></a>9.label for=””放a标签里或外面，for指向单选或多选框，点label却点不到。</h4><p>背景：<br>可能有人会说你为什么会这么做，感觉没必要。<br>其实我当时是想试着用a标签指向不同的id,看可不可以做个选项卡，没想到点不同的a标签确实可以在设置了overflow:hidden;的div框里显示不同的选项，视觉上很像选项卡。最后就剩点不同的a标签，给a标签加个选中状态了，当时想的是用input的伪类:checked来做，于是就出现了上面的坑。<br>原因：<br>不管怎样，点的都是a标签。<br>解决：<br>没办法，最后只能不用a标签指向id来做，都使用了::checked来做。</p>
+<h4 id="10-子元素中有设置了position-absolute-的，其他子元素没法到设置了position-absolute-的上面"><a href="#10-子元素中有设置了position-absolute-的，其他子元素没法到设置了position-absolute-的上面" class="headerlink" title="10.子元素中有设置了position:absolute;的，其他子元素没法到设置了position:absolute;的上面"></a>10.子元素中有设置了position:absolute;的，其他子元素没法到设置了position:absolute;的上面</h4><p>本身absolute就会提高层级，而z-index又是针对定位元素的，所以只能把其他元素设为相对定位，然后使用z-index来提高层级。</p>
+<h4 id="11-加css3过渡效果，如果是width或height，过渡到的状态不能设为auto"><a href="#11-加css3过渡效果，如果是width或height，过渡到的状态不能设为auto" class="headerlink" title="11.加css3过渡效果，如果是width或height，过渡到的状态不能设为auto"></a>11.加css3过渡效果，如果是width或height，过渡到的状态不能设为auto</h4><p>列子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	width:100px;</div><div class="line">	height:100px;</div><div class="line">	transition-property:height;</div><div class="line">	transition-duration:2s;</div><div class="line">&#125;</div><div class="line">div:hover&#123;</div><div class="line">	height:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解决：<br>设固定数值的宽高。</p>
+<h4 id="12-给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）"><a href="#12-给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）" class="headerlink" title="12.给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）"></a>12.给a标签加js点击事件，点击无效果（好坑，因为这蓝飞了半个来小时。）</h4><p>原因：<br>a标签href为空,为空会重新刷新页面，使得点击无效果。<br>解决：<br>href=”javascript:void(0);”或href=”#”;</p>
+<h4 id="持续总结更新中。。。。。。"><a href="#持续总结更新中。。。。。。" class="headerlink" title="持续总结更新中。。。。。。"></a>持续总结更新中。。。。。。</h4><p>以上都是本人在实际操作中遇到的坑，这些坑对于有些人可能不是坑。但对于我来说是，毕竟每个人遇到的坑相对的都不一样。希望这些坑的解决方式方法对你有所帮助。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前端填坑路&quot;&gt;&lt;a href=&quot;#前端填坑路&quot; class=&quot;headerlink&quot; title=&quot;前端填坑路&quot;&gt;&lt;/a&gt;前端填坑路&lt;/h3&gt;&lt;h4 id=&quot;1-外边距合并&quot;&gt;&lt;a href=&quot;#1-外边距合并&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="htmlcss" scheme="http://www.ccblog.win/categories/htmlcss/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+      <category term="html" scheme="http://www.ccblog.win/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用css边框做出三角形,梯形</title>
+    <link href="http://www.ccblog.win/2017/04/05/%E5%88%A9%E7%94%A8css%E8%BE%B9%E6%A1%86%E5%81%9A%E5%87%BA%E4%B8%89%E8%A7%92%E5%BD%A2,%E6%A2%AF%E5%BD%A2/"/>
+    <id>http://www.ccblog.win/2017/04/05/利用css边框做出三角形,梯形/</id>
+    <published>2017-04-05T00:15:23.000Z</published>
+    <updated>2017-05-08T07:24:55.330Z</updated>
+    
+    <content type="html"><![CDATA[<p>在网页中常能看到三角形，可是我们都知道网页中只有矩形边框，那这些三角形是怎么做出来的呢。其实做出这些三角形是利用了边框。如果了解边宽的话应该都知道边框的结构是下面这样的。<br><img src="http://ooa3lxrpg.bkt.clouddn.com/border.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10" alt="enter image description here"><br>如果我将width,height以及padding都设为0,也就是上图区域1为none,那么渐变为下图这样。<br><img src="http://ooa3lxrpg.bkt.clouddn.com/border1.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10" alt="enter image description here"><br>是不是已经看到4个三角形了，对的，这就是我们需要的，接着就看你需要哪个方向的三角形，然后设置对边为none,侧边两边为透明就可以了，如下图：<br><img src="http://ooa3lxrpg.bkt.clouddn.com/border2.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10" alt="enter image description here"><br>代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">width:0;</div><div class="line">height:0;</div><div class="line">border-top:40px solid yellow;</div><div class="line">border-left:40px solid transparent;/*transparent和rgba(0,0,0,0)一样*/</div><div class="line">border-right:40px solid transparent;</div><div class="line">或者</div><div class="line">width:0;</div><div class="line">height:0;</div><div class="line">border-width:40px 40px 0 40px;</div><div class="line">border-color:yellow transparent;</div><div class="line">border-style:solid;</div></pre></td></tr></table></figure></p>
+<p>当然如果给它一个width,就可以出现梯形了。</p>
+<p>知识点虽小，但却很实用，如果再结合伪元素::before,::after，简直太好用了。<br>继续upupup</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在网页中常能看到三角形，可是我们都知道网页中只有矩形边框，那这些三角形是怎么做出来的呢。其实做出这些三角形是利用了边框。如果了解边宽的话应该都知道边框的结构是下面这样的。&lt;br&gt;&lt;img src=&quot;http://ooa3lxrpg.bkt.clouddn.com/borde
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css水平垂直居中</title>
+    <link href="http://www.ccblog.win/2017/04/03/css%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
+    <id>http://www.ccblog.win/2017/04/03/css水平垂直居中/</id>
+    <published>2017-04-03T00:15:23.000Z</published>
+    <updated>2017-05-08T07:24:55.327Z</updated>
+    
+    <content type="html"><![CDATA[<p>要让下图中绿色框水平垂直居中，你是怎么实现的，可能每个人都有自己习惯的使用方法。下面是我总结的几种方法废话不多说，直接上菜。<br><img src="http://ooa3lxrpg.bkt.clouddn.com/005K8nLYzy77M9vyXFM4a&amp;690.png" alt="enter image description here"></p>
+<h3 id="1-利用绝对定位"><a href="#1-利用绝对定位" class="headerlink" title="1.利用绝对定位"></a>1.利用绝对定位</h3><p>方法：把top和 left 偏移 50%，在用margin 偏移回去。<br>适合：已经固定大小的元素。做响应的话可能根据实际需要还需要js的操作。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">div1&#123;</div><div class="line">    background:gold;</div><div class="line">    width:500px;</div><div class="line">    height:500px;</div><div class="line">    position:relative;</div><div class="line">&#125;</div><div class="line">div2&#123;</div><div class="line">    width:400px;</div><div class="line">    height:400px;</div><div class="line">    background:greenyellow;</div><div class="line">    position:absolute;</div><div class="line">    top:50%;</div><div class="line">    left:50%;</div><div class="line">    margin-top:-200px;</div><div class="line">    margin-left:-200px;</div><div class="line">&#125;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;</div><div class="line">    &lt;div id=<span class="string">"div2"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="2-利用绝对定位"><a href="#2-利用绝对定位" class="headerlink" title="2..利用绝对定位"></a>2..利用绝对定位</h3><p>方法：把偏移都设为0，在用margin 自动属性居中。<br>适合：:已经固定大小的元素，不设置宽高，它会撑满整个父元素。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">#div1&#123;</span></div><div class="line">        background:gold;</div><div class="line">        width:500px;</div><div class="line">        height:500px;</div><div class="line">        position:relative;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">#div2&#123;</span></div><div class="line">        position:absolute;</div><div class="line">        top:0;</div><div class="line">        bottom:0;</div><div class="line">        left:0;</div><div class="line">        right:0;</div><div class="line">        width:400px;</div><div class="line">        height:400px;</div><div class="line">        margin:auto;</div><div class="line">        background:greenyellow;</div><div class="line">    &#125;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;</div><div class="line">    &lt;div id=<span class="string">"div2"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="3-利用伪元素"><a href="#3-利用伪元素" class="headerlink" title="3.利用伪元素"></a>3.利用伪元素</h3><p>方法：div2和::after都转为inline-block，在父元素中设文本居中来达到元素水平居中，把伪元素宽度设为100%，然后div2和::after都垂直垂直对齐方式为middle。<br>适合：宽高不定的元素，元素会随内容改变大小，但不管怎么改变，就是可以始终维持垂直和水平置中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#div1&#123;</span></div><div class="line">            background:gold;</div><div class="line">            width:500px;</div><div class="line">            height:500px;</div><div class="line">            text-align:center;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">#div2&#123;</span></div><div class="line">            background:greenyellow;</div><div class="line">            height:400px;</div><div class="line">            width:400px;</div><div class="line">            display:inline-block;</div><div class="line">            vertical-align:middle;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">#div1::after&#123;</span></div><div class="line">            content:<span class="string">''</span>;</div><div class="line">            height:100%;</div><div class="line">            display:inline-block;</div><div class="line">            background:green;</div><div class="line">            vertical-align:middle;</div><div class="line">       &#125;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;</div><div class="line">    &lt;div id=<span class="string">"div2"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="4-利用伪元素"><a href="#4-利用伪元素" class="headerlink" title="4.利用伪元素"></a>4.利用伪元素</h3><p>这个方法和方法3差不多，只是元素属性不太一样。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#div1&#123;</span></div><div class="line">            background:gold;</div><div class="line">            width:500px;</div><div class="line">            height:500px;</div><div class="line">            text-align:center;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">#div2&#123;</span></div><div class="line">            background:greenyellow;</div><div class="line">            height:400px;</div><div class="line">            width:400px;</div><div class="line">            display:inline-block;</div><div class="line">            vertical-align:middle;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">#div1::after&#123;</span></div><div class="line">            content:<span class="string">''</span>;</div><div class="line">            height:50%;</div><div class="line">            display:inline-block;</div><div class="line">            background:green;</div><div class="line">        &#125;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;</div><div class="line">    &lt;div id=<span class="string">"div2"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="5-把元素设为inline-block"><a href="#5-把元素设为inline-block" class="headerlink" title="5.把元素设为inline-block"></a>5.把元素设为inline-block</h3><p>方法：在父元素中设置line-height和center然后设置垂直对齐方式为居中就可以<br>适合：父元素高固定的，毕竟要设置行高。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#div1&#123;</span></div><div class="line">        background:gold;</div><div class="line">        width:500px;</div><div class="line">        height:500px;</div><div class="line">        line-height:500px;</div><div class="line">        text-align:center;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">#div2&#123;</span></div><div class="line">        width:400px;</div><div class="line">        height:400px;</div><div class="line">        vertical-align:middle;</div><div class="line">        display:inline-block;</div><div class="line">        background:greenyellow;</div><div class="line">    &#125;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;</div><div class="line">    &lt;div id=<span class="string">"div2"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>你可以根据实际情况使用不同方法。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;要让下图中绿色框水平垂直居中，你是怎么实现的，可能每个人都有自己习惯的使用方法。下面是我总结的几种方法废话不多说，直接上菜。&lt;br&gt;&lt;img src=&quot;http://ooa3lxrpg.bkt.clouddn.com/005K8nLYzy77M9vyXFM4a&amp;amp;69
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>伪类和伪元素的区别</title>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
+    <published>2017-03-30T00:15:23.000Z</published>
+    <updated>2017-05-08T07:24:55.330Z</updated>
+    
+    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
+<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
+<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
+<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
+</blockquote>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
+<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
+<blockquote>
+<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
+<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
+</blockquote>
+<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
+<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
+<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
+<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">伪类</th>
+<th style="text-align:right">伪元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:active</td>
+<td style="text-align:right">::after</td>
+</tr>
+<tr>
+<td style="text-align:left">:focus</td>
+<td style="text-align:right">::before</td>
+</tr>
+<tr>
+<td style="text-align:left">:hover</td>
+<td style="text-align:right">::first-line</td>
+</tr>
+<tr>
+<td style="text-align:left">:link</td>
+<td style="text-align:right">::first-letter</td>
+</tr>
+<tr>
+<td style="text-align:left">:visited</td>
+<td style="text-align:right">::placeholder</td>
+</tr>
+<tr>
+<td style="text-align:left">:first-child</td>
+<td style="text-align:right">::selection</td>
+</tr>
+<tr>
+<td style="text-align:left">:lang</td>
+</tr>
+<tr>
+<td style="text-align:left">。。。</td>
+</tr>
+</tbody>
+</table>
+<p>我是来打家劫舍的，还不快速速交出银两。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
+&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>伪类和伪元素的区别</title>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本 - 副本/</id>
+    <published>2017-03-30T00:15:23.000Z</published>
+    <updated>2017-05-08T07:24:55.330Z</updated>
+    
+    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
+<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
+<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
+<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
+</blockquote>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
+<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
+<blockquote>
+<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
+<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
+</blockquote>
+<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
+<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
+<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
+<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">伪类</th>
+<th style="text-align:right">伪元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:active</td>
+<td style="text-align:right">::after</td>
+</tr>
+<tr>
+<td style="text-align:left">:focus</td>
+<td style="text-align:right">::before</td>
+</tr>
+<tr>
+<td style="text-align:left">:hover</td>
+<td style="text-align:right">::first-line</td>
+</tr>
+<tr>
+<td style="text-align:left">:link</td>
+<td style="text-align:right">::first-letter</td>
+</tr>
+<tr>
+<td style="text-align:left">:visited</td>
+<td style="text-align:right">::placeholder</td>
+</tr>
+<tr>
+<td style="text-align:left">:first-child</td>
+<td style="text-align:right">::selection</td>
+</tr>
+<tr>
+<td style="text-align:left">:lang</td>
+</tr>
+<tr>
+<td style="text-align:left">。。。</td>
+</tr>
+</tbody>
+</table>
+<p>我是来打家劫舍的，还不快速速交出银两。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
+&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>伪类和伪元素的区别</title>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别/</id>
+    <published>2017-03-30T00:15:23.000Z</published>
+    <updated>2017-05-08T07:24:55.330Z</updated>
+    
+    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
+<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
+<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
+<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
+</blockquote>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
+<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
+<blockquote>
+<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
+<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
+</blockquote>
+<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
+<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
+<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
+<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">伪类</th>
+<th style="text-align:right">伪元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:active</td>
+<td style="text-align:right">::after</td>
+</tr>
+<tr>
+<td style="text-align:left">:focus</td>
+<td style="text-align:right">::before</td>
+</tr>
+<tr>
+<td style="text-align:left">:hover</td>
+<td style="text-align:right">::first-line</td>
+</tr>
+<tr>
+<td style="text-align:left">:link</td>
+<td style="text-align:right">::first-letter</td>
+</tr>
+<tr>
+<td style="text-align:left">:visited</td>
+<td style="text-align:right">::placeholder</td>
+</tr>
+<tr>
+<td style="text-align:left">:first-child</td>
+<td style="text-align:right">::selection</td>
+</tr>
+<tr>
+<td style="text-align:left">:lang</td>
+</tr>
+<tr>
+<td style="text-align:left">。。。</td>
+</tr>
+</tbody>
+</table>
+<p>我是来打家劫舍的，还不快速速交出银两。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
+&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>伪类和伪元素的区别</title>
+    <link href="http://www.ccblog.win/2017/03/30/hjah/"/>
+    <id>http://www.ccblog.win/2017/03/30/hjah/</id>
+    <published>2017-03-30T00:15:23.000Z</published>
+    <updated>2017-05-08T07:24:55.330Z</updated>
+    
+    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
+<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
+<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
+<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
+</blockquote>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
+<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
+<blockquote>
+<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
+<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
+</blockquote>
+<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
+<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
+<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
+<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">伪类</th>
+<th style="text-align:right">伪元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:active</td>
+<td style="text-align:right">::after</td>
+</tr>
+<tr>
+<td style="text-align:left">:focus</td>
+<td style="text-align:right">::before</td>
+</tr>
+<tr>
+<td style="text-align:left">:hover</td>
+<td style="text-align:right">::first-line</td>
+</tr>
+<tr>
+<td style="text-align:left">:link</td>
+<td style="text-align:right">::first-letter</td>
+</tr>
+<tr>
+<td style="text-align:left">:visited</td>
+<td style="text-align:right">::placeholder</td>
+</tr>
+<tr>
+<td style="text-align:left">:first-child</td>
+<td style="text-align:right">::selection</td>
+</tr>
+<tr>
+<td style="text-align:left">:lang</td>
+</tr>
+<tr>
+<td style="text-align:left">。。。</td>
+</tr>
+</tbody>
+</table>
+<p>我是来打家劫舍的，还不快速速交出银两。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
+&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>纯css点击效果</title>
+    <link href="http://www.ccblog.win/2017/03/20/%E7%BA%AFcss%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C/"/>
+    <id>http://www.ccblog.win/2017/03/20/纯css点击效果/</id>
+    <published>2017-03-20T00:15:23.000Z</published>
+    <updated>2017-05-08T07:24:55.330Z</updated>
+    
+    <content type="html"><![CDATA[<p>平时网页中如果需要出现点击效果的按钮或是菜单，你可能首先想到的是js的点击事件，实现这些利用js虽然也简单，但毕竟是脚本，运行起来，性能上还是会慢些，其实有些点击效果用css也可以实现，运行css那可就比js快多了，下面总结一些用纯css实现的点击效果。</p>
+<h3 id="1-利用单选框和复选框"><a href="#1-利用单选框和复选框" class="headerlink" title="1.利用单选框和复选框"></a>1.利用单选框和复选框</h3><h4 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h4><h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p><img src="http://ooa3lxrpg.bkt.clouddn.com/1.gif" alt="enter image description here"></p>
+<p>html<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"checkbox"</span> id=<span class="string">"p"</span>&gt;&lt;label <span class="keyword">for</span>=<span class="string">"p"</span>&gt;&lt;/label&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">input[<span class="built_in">type</span>=<span class="string">'checkbox'</span>]&#123;</div><div class="line">			display:none;</div><div class="line">		&#125;</div><div class="line">		label&#123;</div><div class="line">			display:inline-block;</div><div class="line">			width:245px;</div><div class="line">			height:81px;</div><div class="line">			background:none;</div><div class="line">			border:none;</div><div class="line">			border-radius:40px;</div><div class="line">			-moz-border-radius:40px;</div><div class="line">			-webkit-border-radius:40px;</div><div class="line">			-o-border-radius:40px;</div><div class="line">			-ms-border-radius:40px;</div><div class="line">			background:url(<span class="string">'./images/button.jpg'</span>);</div><div class="line">		&#125;</div><div class="line">		input:checked+label&#123;</div><div class="line">			background-position:245px top;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+<p>不过由于利用了单选框和复选框的 :checked 来实现，所以需要支持css3的浏览器才可以。其实利用它最常用的就是改变单选复选框的样式，不过只要你想，它还可以实现很多效果，帮你减少使用js代码。就像下面这个例子。</p>
+<h4 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h4><p><img src="http://ooa3lxrpg.bkt.clouddn.com/pl.gif" alt="enter image description here"><br>是不是很不错</p>
+<p>###2.利用伪类:active</p>
+<p>这应该是最容易想到，但也最容易忽略的。</p>
+<p>效果<br><img src="http://ooa3lxrpg.bkt.clouddn.com/po.gif" alt="enter image description here"></p>
+<p>html<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button class=<span class="string">"button"</span>&gt;click&lt;/button&gt;</div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">.button &#123;</div><div class="line">    position: relative;</div><div class="line">    background-color: <span class="comment">#0d6ce2;</span></div><div class="line">    border: none;</div><div class="line">    font-size: 28px;</div><div class="line">    color: <span class="comment">#FFFFFF;</span></div><div class="line">    padding: 20px;</div><div class="line">    width: 200px;</div><div class="line">    text-align: center;</div><div class="line">	border-radius:20px;</div><div class="line">	outline:none;</div><div class="line">    -webkit-transition-duration: 0.4s; /* Safari */</div><div class="line">    transition-duration: 0.4s;</div><div class="line">    text-decoration: none;</div><div class="line">    overflow: hidden;</div><div class="line">    cursor: pointer;</div><div class="line">&#125;</div><div class="line">.button:after &#123;</div><div class="line">    content: <span class="string">""</span>;</div><div class="line">    background: <span class="comment">#fff;</span></div><div class="line">    display: block;</div><div class="line">    position: absolute;</div><div class="line">	top:0;</div><div class="line">	left:0;</div><div class="line">    width:300px;</div><div class="line">	height:300px;</div><div class="line">    opacity: 0;</div><div class="line">    transition: all 0.8s</div><div class="line">&#125;</div><div class="line">.button:active:after &#123;</div><div class="line">    top:75px;</div><div class="line">	right:200px;</div><div class="line">    opacity: 1;</div><div class="line">    transition: 0s</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>希望本篇博客对大家学习有所帮助。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;平时网页中如果需要出现点击效果的按钮或是菜单，你可能首先想到的是js的点击事件，实现这些利用js虽然也简单，但毕竟是脚本，运行起来，性能上还是会慢些，其实有些点击效果用css也可以实现，运行css那可就比js快多了，下面总结一些用纯css实现的点击效果。&lt;/p&gt;
+&lt;h3 i
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hsl颜色表示法</title>
     <link href="http://www.ccblog.win/2017/03/19/css%E9%A2%9C%E8%89%B2%E8%A1%A8%E7%A4%BA%E7%A7%8D%E7%B1%BB/"/>
     <id>http://www.ccblog.win/2017/03/19/css颜色表示种类/</id>
     <published>2017-03-19T00:15:23.000Z</published>
-    <updated>2017-04-25T11:48:22.910Z</updated>
+    <updated>2017-05-08T07:24:55.328Z</updated>
     
     <content type="html"><![CDATA[<p>css颜色表示法通常常用和最常见的三种<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background-color:red;</div><div class="line">background-color:<span class="comment">#ff0000;</span></div><div class="line">background-color:rgb(255,0,0);</div></pre></td></tr></table></figure></p>
 <p>hsl颜色表示法，不知大家用没用过，反正我到我写这篇博客之前一直没用过。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">backgroud-color:hsl(0,100%,54%);</div></pre></td></tr></table></figure></p>
@@ -52,7 +561,7 @@
     <link href="http://www.ccblog.win/2017/03/14/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F/"/>
     <id>http://www.ccblog.win/2017/03/14/hexo主题配置和修改样式/</id>
     <published>2017-03-14T00:15:23.000Z</published>
-    <updated>2017-04-20T14:40:27.893Z</updated>
+    <updated>2017-05-08T07:24:55.329Z</updated>
     
     <content type="html"><![CDATA[<h2 id="继续叨叨叨"><a href="#继续叨叨叨" class="headerlink" title="继续叨叨叨"></a>继续叨叨叨</h2><p>上一篇介绍了hexo的安装和部署（还没部署的小伙伴<a href="http://www.ccblog.win/2017/04/11/hello-world">点这里</a>)，这篇咱们接着上篇介绍怎么应用主题next和优化next。</p>
 <h2 id="next主题"><a href="#next主题" class="headerlink" title="next主题"></a>next主题</h2><p>hexo的主题很多，但还是觉得next符合我的感觉，简洁大气，耐看。毕竟是博客，文章才是最主要的，花里胡哨的主题太宣兵夺主了。</p>
