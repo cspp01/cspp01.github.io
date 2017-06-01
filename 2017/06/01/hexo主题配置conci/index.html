@@ -93,67 +93,64 @@
     <div id="main" class="clearfix">
         <section id="main-left" class="left">
             <article id="post">
-    <h1>hexo的next主题配置和优化</h1>
+    <h1>hexo主题配置conci</h1>
     <p>
         
             <span class="visitors">visitors
-                <span id="/2017/03/14/hexo主题配置和修改样式/" class="leancloud_visitors" data-flag-title="hexo的next主题配置和优化">
+                <span id="/2017/06/01/hexo主题配置conci/" class="leancloud_visitors" data-flag-title="hexo主题配置conci">
                     <span class="leancloud-visitors-count">0</span>
                 </span>
             </span>&nbsp;&nbsp;•&nbsp;&nbsp;
         
         
             <span class="tag">
-                  <a class="article-category-link" href="/categories/hexo博客搭建/">hexo博客搭建</a>
+                  <a class="article-category-link" href="/categories/hexo主题/">hexo主题</a>
             </span>&nbsp;&nbsp;•&nbsp;&nbsp;
         
-        <span class="date">2017.03.14</span>
+        <span class="date">2017.06.01</span>
     </p>
     <div id="page-post-content">
-        <h2 id="继续叨叨叨"><a href="#继续叨叨叨" class="headerlink" title="继续叨叨叨"></a>继续叨叨叨</h2><p>上一篇介绍了hexo的安装和部署（还没部署的小伙伴<a href="http://www.ccblog.win/2017/04/11/hello-world">点这里</a>)，这篇咱们接着上篇介绍怎么应用主题next和优化next。</p>
-<h2 id="next主题"><a href="#next主题" class="headerlink" title="next主题"></a>next主题</h2><p>hexo的主题很多，但还是觉得next符合我的感觉，简洁大气，耐看。毕竟是博客，文章才是最主要的，花里胡哨的主题太宣兵夺主了。</p>
-<h3 id="下载应用next"><a href="#下载应用next" class="headerlink" title="下载应用next"></a>下载应用next</h3><p>hexo的主题都存放在themes文件夹下，在themes文件夹下右键Git bash Here，输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next next</div></pre></td></tr></table></figure></p>
-<p>然后在_config.yml文件中找到theme字段改为next（hexo的所有主题应用都一样）。<br>然后输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo s -debug</div></pre></td></tr></table></figure></p>
+        <h2 id="继续叨叨叨"><a href="#继续叨叨叨" class="headerlink" title="继续叨叨叨"></a>继续叨叨叨</h2><p>之前介绍了hexo的安装和部署（还没部署的小伙伴<a href="http://www.ccblog.win/2017/03/12/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">点这里</a>)，这篇咱们接着介绍怎么应用主题。</p>
+<h2 id="conci主题-github"><a href="#conci主题-github" class="headerlink" title="conci主题(github)"></a>conci主题(<a href="https://github.com/cspp01/concise" target="_blank" rel="external">github</a>)</h2><p>hexo的主题很多，这里主要是配置我自己开发的conci主题</p>
+<h3 id="下载conci"><a href="#下载conci" class="headerlink" title="下载conci"></a>下载conci</h3><p>hexo的主题都存放在themes文件夹下，在themes文件夹下右键Git bash Here，输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/cspp01/concise.git</div></pre></td></tr></table></figure></p>
+<p>然后在主_config.yml文件中找到theme字段改为concise。</p>
+<h3 id="安装scss预编译插件"><a href="#安装scss预编译插件" class="headerlink" title="安装scss预编译插件"></a>安装scss预编译插件</h3><p>由于我是用的是scss写的css代码，所以先安装sass插件。在主根目录下右键Git bash Here，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-renderer-sass --save</div></pre></td></tr></table></figure></p>
+<h3 id="安装自定义页面的插件"><a href="#安装自定义页面的插件" class="headerlink" title="安装自定义页面的插件"></a>安装自定义页面的插件</h3><p>在主根目录下右键Git bash Here，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-mypage --save</div></pre></td></tr></table></figure></p>
+<p>然后在主_config.yml中添加如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mypage:</div><div class="line"> tags/index.html: tags</div><div class="line"> categories/index.html: categories</div><div class="line"> about.html: about</div></pre></td></tr></table></figure></p>
+<p>基本条件已经OK，可以预览了。输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo s -debug</div></pre></td></tr></table></figure></p>
 <p>在本地预览调试看看是否应用成功。</p>
-<h3 id="选择自己喜欢的next外观"><a href="#选择自己喜欢的next外观" class="headerlink" title="选择自己喜欢的next外观"></a>选择自己喜欢的next外观</h3><p>打开下载好的next文件夹下的_config.yml找到scheme字段，将你喜欢的外观前面的#删除。这样重新输入上面的命令，在本地预览查看。</p>
-<h3 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h3><p>在next下的_config.yml中找到language字段，设置语言名字。在languages文件夹下的文件名就是所对应支持的语言：<br>| 名字| 对应语言|<br>| ————- |:————-:|<br>| en      | 英语 |<br>| zh-Hans      | 简体中文      |<br>| zh-hk / zh-tw | 繁體中文      |<br>| ja      | 日本語|<br>| ko      | 韩语|<br>| ru| 俄语|<br>| fr-FR      | 法语      |<br>| pt | 葡萄牙语      |<br>| de     | 德语|<br>| id      | 印度尼西亚|</p>
-<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><p>在主题配置文件中找到avatar字段，写上你头像的http地址（云存储对应头像的地址）也可放在本地，不过推荐放云端存储。</p>
-<h3 id="添加标签页"><a href="#添加标签页" class="headerlink" title="添加标签页"></a>添加标签页</h3><p>在hext目录下右键git bash Here输入以下命令新建标签页，（注意：文章中没加入过标签的话页面为空）,标签页位于source文件夹下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new page tags</div></pre></td></tr></table></figure></p>
-<p>在source \ _posts下的文章中在两个- - -之间添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></div><div class="line">tags: [<span class="string">'hexo'</span>,<span class="string">'next'</span>](hexo和next就是标签，你可以写任何关于你文章名字的标签,加到后页面就可以打开看到标签了)</div></pre></td></tr></table></figure></p>
-<h3 id="添加分类页面"><a href="#添加分类页面" class="headerlink" title="添加分类页面"></a>添加分类页面</h3><p>和添加标签页一样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new page categories</div></pre></td></tr></table></figure></p>
-<p>在source \ _posts下的在文章中在两个- - -之间添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></div><div class="line">categories: hexo博客</div></pre></td></tr></table></figure></p>
-<h3 id="社交链接"><a href="#社交链接" class="headerlink" title="社交链接"></a>社交链接</h3><p>在主题配置文件中找到social字段，输入对应的你的地址就ok了，不想显示的可以加#.</p>
-<h3 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h3><p>在主题配置文件中找到links字段，输入一个（name: http地址）形式的地址就ok了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">links:</div><div class="line">  name: http地址</div></pre></td></tr></table></figure></p>
-<h2 id="主题样式修改"><a href="#主题样式修改" class="headerlink" title="主题样式修改"></a>主题样式修改</h2><p>我应用的外观是Pisces，我的方式简单粗暴，直接利用浏览器的开发者工具找到相应要修改的样式，然后直接在themes \ next \ source \ css \ _custom中的custom.styl文件中添加css来覆盖原有颜色样式，如果你懂css这些应该so easy。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">body &#123; background:<span class="comment">#2E0008;&#125;//背景颜色</span></div><div class="line">.site-meta&#123; background:<span class="comment">#dd1031;&#125;//左上角标题栏颜色</span></div><div class="line">.site-title&#123; font-size:40px;&#125;//左上角标题栏字体尺寸</div><div class="line">.back-to-top&#123; background:<span class="comment">#dd1031;opacity:1;&#125;//右下角返回顶部样式</span></div><div class="line">.content-wrap &#123; background-image:url(<span class="string">'http://ooa3lxrpg.bkt.clouddn.com/1232.png?imageView2/0/q/75'</span>);background-repeat:no-repeat;background-position:right top;&#125;//右边区域背景</div><div class="line">.site-author-image &#123;//头像</div><div class="line">border-radius: 50%;//头像变为圆形</div><div class="line">-webkit-border-radius: 50%;</div><div class="line">-o-border-radius: 50%;</div><div class="line">-moz-border-radius: 50%;</div><div class="line">border: 5px solid <span class="comment">#dd1031;//头像边框尺寸 颜色</span></div><div class="line">&#125;</div><div class="line">.</div><div class="line">.</div><div class="line">.</div><div class="line">.</div><div class="line">.</div><div class="line">.</div></pre></td></tr></table></figure></p>
-<p>所以你可以修改你想修改的所有样式。今天基本就写到这里了，这几天突然发现自己的知识太少了，突然好想静下心来好好学习学习。希望我们大家都可以一直进步。<br>下一篇继续hexo的优化，给你的博客添加评论，搜索等。</p>
+<h2 id="conci基本配置"><a href="#conci基本配置" class="headerlink" title="conci基本配置"></a>conci基本配置</h2><h3 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h3><p>在主题配置文件中找到my_img字段.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">my_img: http://ooa3lxrpg.bkt.clouddn.com/b.jpg?imageView2/1/w/120/h/120/q/75 //地址（云存储对应头像的地址）也可放在本地，不过推荐放云端存储。</div></pre></td></tr></table></figure></p>
+<h3 id="添加logo"><a href="#添加logo" class="headerlink" title="添加logo"></a>添加logo</h3><p>在主题配置文件中找到logo字段<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logo: conci <span class="comment">#&lt;img src="./logo.png"&gt;//可以是字符也可以是图片如(&lt;img src="你的logo地址"&gt;)</span></div></pre></td></tr></table></figure></p>
+<h3 id="添加favicon"><a href="#添加favicon" class="headerlink" title="添加favicon"></a>添加favicon</h3><p>把主题\source文件夹下的favicon.ico替换或者在主题配置文件中找到favicon字段把地址换成你的地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">favicon: /favicon.ico</div></pre></td></tr></table></figure></p>
+<h3 id="配置展示信息"><a href="#配置展示信息" class="headerlink" title="配置展示信息"></a>配置展示信息</h3><p>找到inf字段来对应设置你要展示的信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">inf:</div><div class="line">  name: conci.theme</div><div class="line">  superscript: hexo//上标字段</div><div class="line">  describe:</div><div class="line">    one: conci version 1.0.0//第一行信息</div><div class="line">    two: Simple and practical hexo personal blog theme.//第2行信息</div><div class="line">    three: The freedom to choose//第3行信息</div></pre></td></tr></table></figure></p>
+<h3 id="配置社交账号地址"><a href="#配置社交账号地址" class="headerlink" title="配置社交账号地址"></a>配置社交账号地址</h3><p>找到my_social字段来对应设置你要展示的信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">my_social:</div><div class="line">  github: https://github.com/cspp01</div><div class="line">  twitter: /</div><div class="line">  weibo: http://weibo.com/5262373626/profile?topnav=1&amp;wvr=6&amp;is_all=1</div><div class="line">  豆瓣: http://douban.com/people/160374034/</div><div class="line">  知乎: http://www.zhihu.com/people/cc-chen-4-85</div></pre></td></tr></table></figure></p>
+<h3 id="配置友情链接"><a href="#配置友情链接" class="headerlink" title="配置友情链接"></a>配置友情链接</h3><p>找到my_links字段来按格式设置，要设置几个友情链接就设置几个<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">my_links:</div><div class="line">  ccblog1://友情链接名字</div><div class="line">    href: //友情链接地址</div><div class="line">    img: http://ooa3lxrpg.bkt.clouddn.com/timg.jpg//友情链接头像地址</div><div class="line">  ccblog2://友情链接名字</div><div class="line">    href: //友情链接地址</div><div class="line">    img: http://ooa3lxrpg.bkt.clouddn.com/timg.jpg//友情链接头像地址</div></pre></td></tr></table></figure></p>
+<h3 id="配置首页文章简介字符数"><a href="#配置首页文章简介字符数" class="headerlink" title="配置首页文章简介字符数"></a>配置首页文章简介字符数</h3><p>找到index_pagelength字段设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">index_pagelength: 200//字符数</div></pre></td></tr></table></figure></p>
+<h3 id="开启打赏功能"><a href="#开启打赏功能" class="headerlink" title="开启打赏功能"></a>开启打赏功能</h3><p>找到reward字段设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reward:</div><div class="line">  open: <span class="literal">true</span>//[<span class="literal">true</span>(开启)|<span class="literal">false</span>(关闭)]</div><div class="line">  weixing: http://ooa3lxrpg.bkt.clouddn.com/wx.jpg?imageView2/2/w/180 <span class="comment">#你的微信收钱二维码图片地址</span></div><div class="line">  alipay: http://ooa3lxrpg.bkt.clouddn.com/zfb.jpg?imageView2/2/w/180 <span class="comment">#你的支付宝收钱二维码图片地址</span></div></pre></td></tr></table></figure></p>
+<h3 id="自定义侧边栏位置"><a href="#自定义侧边栏位置" class="headerlink" title="自定义侧边栏位置"></a>自定义侧边栏位置</h3><p>找到sidebar字段设置，注意两个属性的值必须相反<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sidebar:</div><div class="line">  content: left//内容位置[left|right]</div><div class="line">  my: right//侧边栏位置[left|right]</div></pre></td></tr></table></figure></p>
+<h2 id="文章属性配置"><a href="#文章属性配置" class="headerlink" title="文章属性配置"></a>文章属性配置</h2><p>在source /\ _posts下的文章中在两个- - -之间添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: hexo的next主题配置和优化</div><div class="line">date: 2017-06-1 08:15:23</div><div class="line">tags: [<span class="string">'hexo'</span>,<span class="string">'next'</span>,<span class="string">'css'</span>] //hexo和next就是标签，你可以写任何关于你文章名字的标签</div><div class="line">categories: hexo博客搭建 //分类</div><div class="line">pho: http://ooa3lxrpg.bkt.clouddn.com/11.jpg //首页展示图片地址，未配置的话会显示默认图片</div><div class="line">---</div></pre></td></tr></table></figure></p>
+<p>今天基本就写到这里了，希望对你们有帮助。<br>下一篇介绍怎么开启conci主题的评论，搜索，分享，rss,阅读数统计等。</p>
 
     </div>
     
         <div id="page-post-tags">
-              <a class="article-tag-link" href="/tags/css/">css</a>&nbsp;/&nbsp;<a class="article-tag-link" href="/tags/hexo/">hexo</a>&nbsp;/&nbsp;<a class="article-tag-link" href="/tags/next/">next</a>
+              <a class="article-tag-link" href="/tags/conci/">conci</a>&nbsp;/&nbsp;<a class="article-tag-link" href="/tags/hexo/">hexo</a>&nbsp;/&nbsp;<a class="article-tag-link" href="/tags/hexo主题/">hexo主题</a>
         </div>
     
     
     
 <nav id="article-nav" class="clearfix">
   
-    <a href="/2017/03/12/hexo个人博客搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/31/jquery显示隐藏常用方式性能测试报告/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           
-          hexo个人博客搭建
+          jquery显示隐藏常用方式性能测试报告
         
       </div>
     </a>
   
-  
-    <a href="/2017/03/19/css颜色表示种类/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-        
-        
-      <div class="article-nav-title">undefined</div>
-    </a>
   
 </nav>
 
