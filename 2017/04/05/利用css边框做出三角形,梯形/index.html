@@ -3,7 +3,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>concise</title>
+    
+    <title>post | conci</title>
+    <meta name="description" content="在网页中常能看到三角形，可是我们都知道网页中只有矩形边框，那这些三角形是怎么做出来的呢。其实做出这些三角形是利用了边框。如果了解边宽的话应该都知道边框的结构是下面这样的。如果我将width,height以及padding都设为0,也就是上图区域1为none,那么渐变为下图这样。是不是已经看到4个三角形了，对的，这就是我们需要的，接着就看你需要哪个方向的三角形，然后设置对边为none,侧边两边为透明">
+<meta name="keywords" content="css,css3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用css边框做出三角形,梯形">
+<meta property="og:url" content="http://www.ccblog.win/2017/04/05/利用css边框做出三角形,梯形/index.html">
+<meta property="og:site_name" content="cc">
+<meta property="og:description" content="在网页中常能看到三角形，可是我们都知道网页中只有矩形边框，那这些三角形是怎么做出来的呢。其实做出这些三角形是利用了边框。如果了解边宽的话应该都知道边框的结构是下面这样的。如果我将width,height以及padding都设为0,也就是上图区域1为none,那么渐变为下图这样。是不是已经看到4个三角形了，对的，这就是我们需要的，接着就看你需要哪个方向的三角形，然后设置对边为none,侧边两边为透明">
+<meta property="og:image" content="http://ooa3lxrpg.bkt.clouddn.com/border.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://ooa3lxrpg.bkt.clouddn.com/border1.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://ooa3lxrpg.bkt.clouddn.com/border2.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:updated_time" content="2017-06-01T05:19:46.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用css边框做出三角形,梯形">
+<meta name="twitter:description" content="在网页中常能看到三角形，可是我们都知道网页中只有矩形边框，那这些三角形是怎么做出来的呢。其实做出这些三角形是利用了边框。如果了解边宽的话应该都知道边框的结构是下面这样的。如果我将width,height以及padding都设为0,也就是上图区域1为none,那么渐变为下图这样。是不是已经看到4个三角形了，对的，这就是我们需要的，接着就看你需要哪个方向的三角形，然后设置对边为none,侧边两边为透明">
+<meta name="twitter:image" content="http://ooa3lxrpg.bkt.clouddn.com/border.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10">
+    
+        <link rel="alternate" href="true" title="cc" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/favicon.ico">
+    
     <link rel="stylesheet" href="/css/concise.css">
     <script src="/js/concise.js"></script>
     <script>
@@ -28,27 +50,9 @@
             }
         })();
     </script>
-    <script type="text/javascript" id="hexo.configuration">
-        var CONFIG = {
-            root: '/',
-            algolia: {
-                applicationID: '148WKKLBJ2',
-                apiKey: '1b27867f0ba7ad358543a84d6d30bcb3',
-                indexName: 'test',
-                hits: {
-                    per_page: ''
-                },
-                labels: {
-                    input_placeholder: '请输入要搜索的字段...',
-                    hits_empty: '没有查找到和 「${query}」相关的内容',
-                    hits_stats: '总共${hits} 条相关条目，使用了 ${time} 毫秒'
-                }
-            }
-        };
-    </script>
+    
     <script src="http://opu30aljn.bkt.clouddn.com/jquery.js"></script>
-    <script src="http://opu30aljn.bkt.clouddn.com/instantsearch.js"></script>
-    <script src="/js/thirdparty/algolia.js"></script>
+    
     <script src="/js/script.js"></script>
 </head>
 <body>
@@ -181,13 +185,13 @@
         
             <a href="https://github.com/cspp01" class="my-social-me2">github</a>
         
-            <a href="/" class="my-social-me1">twitter</a>
+            <a href="/" class="my-social-me4">twitter</a>
         
             <a href="http://weibo.com/5262373626/profile?topnav=1&wvr=6&is_all=1" class="my-social-me2">weibo</a>
         
-            <a href="http://douban.com/people/160374034/" class="my-social-me4">豆瓣</a>
+            <a href="http://douban.com/people/160374034/" class="my-social-me5">豆瓣</a>
         
-            <a href="http://www.zhihu.com/people/cc-chen-4-85" class="my-social-me1">知乎</a>
+            <a href="http://www.zhihu.com/people/cc-chen-4-85" class="my-social-me3">知乎</a>
         
     </p>
     <div class="my-post">
@@ -272,26 +276,7 @@
 </div>
 <label for="left-information"></label>
 
-<div class="site-search">
-    <div class="algolia-popup popup">
-        <div class="algolia-search">
-            <div class="algolia-search-input-icon">
-                <i class="fa fa-search"></i>
-            </div>
-            <div class="algolia-search-input" id="algolia-search-input"></div>
-        </div>
 
-        <div class="algolia-results">
-            <div id="algolia-stats"></div>
-            <div id="algolia-hits"></div>
-            <div id="algolia-pagination" class="algolia-pagination"></div>
-        </div>
-
-        <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    </div>
-</div>
 
 <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
 <script>AV.initialize("GIro8Qd31eQHaDFeUnvpSDaP-gzGzoHsz", "ozedpz4nGJSoFS5nR0kLUrXV");</script>
