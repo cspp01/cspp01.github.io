@@ -1,929 +1,370 @@
 <!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="en">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="cc" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="求知若饥 虚心若愚">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cc">
-<meta property="og:url" content="http://www.ccblog.win/archives/2017/page/2/index.html">
-<meta property="og:site_name" content="cc">
-<meta property="og:description" content="求知若饥 虚心若愚">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cc">
-<meta name="twitter:description" content="求知若饥 虚心若愚">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '148WKKLBJ2',
-      apiKey: '1b27867f0ba7ad358543a84d6d30bcb3',
-      indexName: 'blog',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for blog","hits_empty":"Good embarrassed, search less than '${query}'.","hits_stats":"${hits} results found in ${time} ms."}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://www.ccblog.win/archives/2017/page/2/"/>
-
-
-
-
-
-  <title> Archive | cc </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>concise</title>
+    <link rel="stylesheet" href="/css/concise.css">
+    <script src="/js/concise.js"></script>
+    <script>
+        (function(){
+            var useragent=navigator.userAgent;
+            console.log(navigator,useragent);
+            var isM;
+            if(useragent.indexOf('iPhone')!=-1){
+                isM=true;
+            }else if(useragent.indexOf('Android ')!=-1){
+                isM=true;
+            }else if(useragent.indexOf('iPad')!=-1){
+                isM=true;
+            }else{
+                isM=false;
+            }
+            if(isM){
+                document.documentElement.style.fontSize=document.documentElement.clientWidth/375*100+'px';
+                window.onresize=function(){
+                    document.documentElement.style.fontSize=document.documentElement.clientWidth/375*100+'px';
+                };
+            }
+        })();
+    </script>
+    <script type="text/javascript" id="hexo.configuration">
+        var CONFIG = {
+            root: '/',
+            algolia: {
+                applicationID: '148WKKLBJ2',
+                apiKey: '1b27867f0ba7ad358543a84d6d30bcb3',
+                indexName: 'test',
+                hits: {
+                    per_page: ''
+                },
+                labels: {
+                    input_placeholder: '请输入要搜索的字段...',
+                    hits_empty: '没有查找到和 「${query}」相关的内容',
+                    hits_stats: '总共${hits} 条相关条目，使用了 ${time} 毫秒'
+                }
+            }
+        };
+    </script>
+    <script src="http://opu30aljn.bkt.clouddn.com/jquery.js"></script>
+    <script src="http://opu30aljn.bkt.clouddn.com/instantsearch.js"></script>
+    <script src="/js/thirdparty/algolia.js"></script>
+    <script src="/js/script.js"></script>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  
-
-
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?4916ace961b16da7c6ce329a540b28f5";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-  
-  
+<body>
+<input type="checkbox" id="left-information">
+<div id="wrapper">
+    <div id="bgg"></div>
+    <header id="header">
+    <nav id="nav" class="clearfix">
+        <label for="left-information"></label>
+        <ul class='nav-left'>
+            <li><a href="/">concise</a></li>
+        </ul>
+        <input type="checkbox" id="header-right-nav">
+        <ul class="clearfix nav-right">
+            
+            <li><a href="/">Home</a></li>
+            
+            <li><a href="/about">About</a></li>
+            
+            <li><a href="/contact">Contact</a></li>
+            
+            <li><a href="/archives">Archives</a></li>
+            
+            <li><a href="/tags">tags</a></li>
+            
+        </ul>
+        <label for="header-right-nav"><i></i></label>
+    </nav>
+</header>
+    <article id="logo">
+    <div id="logo-content">
+        <header>
+            <a href="">concise.theme<b>hexo</b></a>
+        </header>
+        <p>
+            concise version 1.0.0<br>
+            Simple and practical hexo personal blog theme.<br>
+            The freedom to choose
+        </p>
+    </div>
+</article>
+    <div id="main" class="clearfix">
+        <section id="main-left" class="left">
+            
     
-  
+        
 
-  <div class="container sidebar-position-left  page-archive  ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+        <section id="archive" class="clearfix">
+            <header>
+                articles<span>all</span>
+            </header>
+            
+                
+                    <article class="archive-page">
+                        <header><a href="/2017/03/12/hexo个人博客搭建/">hexo个人博客搭建</a></header>
+                        <time>2017,03,12</time>
+                    </article>
+                
+                
+            
+                
+                    <article class="archive-page archive-right">
+                        <header><a href="/2017/03/01/hello-world/">Hello World</a></header>
+                        <time>2017,03,01</time>
+                    </article>
+                
+                
+            
+        </section>
     
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">cc</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            Commonweal 404
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
-  
+<nav id="index-pading">
+    pages:&nbsp;&nbsp;
+    <a class="extend prev" rel="prev" href="/archives/2017/"><span class="index-prev">«&nbsp;</span></a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
 </nav>
 
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
+        </section>
+        <section id="main-right" class="right">
+            <div class="my">
+    <div class="my-information">
+        <div class="my-img">
+            <img src="http://ooa3lxrpg.bkt.clouddn.com/b.jpg?imageView2/1/w/120/h/120/q/75" rel="图片">
+            <a href="/"></a>
+        </div>
+        <span>cc</span>
+        <p>求知若饥 虚心若愚</p>
+    </div>
+    <p class="my-social">
         
-      
-      Um..! 13 posts in total. Keep on posting.
+            <a href="/" class="my-social-me1">github</a>
+        
+            <a href="/" class="my-social-me5">twitter</a>
+        
+            <a href="/" class="my-social-me5">weibo</a>
+        
+            <a href="/" class="my-social-me5">豆瓣</a>
+        
+            <a href="/" class="my-social-me4">知乎</a>
+        
+    </p>
+    <div class="my-post">
+        <a href="/archives">
+            <strong>12</strong><br>
+            <span>posts</span>
+        </a>
+        <a href="/categories">
+            <strong>5</strong><br>
+            <span>categories</span>
+        </a>
+        <a href="/tags">
+            <strong>9</strong><br>
+            <span>tags</span>
+        </a>
+    </div>
+    <div class="search-rss">
+        <div class="my-search">
+            <a href="javascript:void(0)" id ='my-search-a' class="popup-trigger">search</a>
+        </div>
+        
+            <div class="my-rss">
+                <a href="/atom.xml">rss</a>
+            </div>
+        
+    </div>
+    <div class="my-links">
+        <ul class="clearfix">
+            
+            <li>
+                <a href="/">
+                    <img src="http://ooa3lxrpg.bkt.clouddn.com/timg.jpg">
+                    <p>ccblog</p>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <img src="http://ooa3lxrpg.bkt.clouddn.com/timg%20%282%29.jpg">
+                    <p>boc</p>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <img src="http://ooa3lxrpg.bkt.clouddn.com/timg%20%283%29.jpg">
+                    <p>haha</p>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <img src="http://ooa3lxrpg.bkt.clouddn.com/timg%20%283%29.jpg">
+                    <p>pp</p>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/">
+                    <img src="http://ooa3lxrpg.bkt.clouddn.com/timg%20%281%29.jpg">
+                    <p>oop</p>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="hot-page">
+        
+    </div>
+</div>
+        </section>
+    </div>
+    <footer id="footer">
+    <p>© 2017  cc | <iframe src="https://ghbtns.com/github-btn.html?user=cspp01&repo=cspp01.github.io&type=star&count=true" >
+        </iframe><br/>
+        concise theme, this world is mine.  | cc'blog | Fork me on Github
+        
+            | <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261969111'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1261969111%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        
+    </p>
+</footer>
+</div>
+<label for="left-information"></label>
+
+<div class="site-search">
+    <div class="algolia-popup popup">
+        <div class="algolia-search">
+            <div class="algolia-search-input-icon">
+                <i class="fa fa-search"></i>
+            </div>
+            <div class="algolia-search-input" id="algolia-search-input"></div>
+        </div>
+
+        <div class="algolia-results">
+            <div id="algolia-stats"></div>
+            <div id="algolia-hits"></div>
+            <div id="algolia-pagination" class="algolia-pagination"></div>
+        </div>
+
+        <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
     </span>
-
-    
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/14/hexo主题配置和修改样式/" itemprop="url">
-              
-                <span itemprop="name">hexo的next主题配置和优化</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-14T08:15:23+08:00"
-              content="2017-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/12/hexo个人博客搭建/" itemprop="url">
-              
-                <span itemprop="name">hexo个人博客搭建</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T08:15:23+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/01/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-01T08:15:23+08:00"
-              content="2017-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://ooa3lxrpg.bkt.clouddn.com/b.jpg?imageView2/1/w/120/h/120/q/75"
-               alt="cc" />
-          <p class="site-author-name" itemprop="name">cc</p>
-           
-              <p class="site-description motion-element" itemprop="description">求知若饥 虚心若愚</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">categories</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a rel="external nofollow" href="https://github.com/cspp01" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a rel="external nofollow" href="http://weibo.com/5262373626/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a rel="external nofollow" href="http://douban.com/people/160374034/" target="_blank" title="豆瓣">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  豆瓣
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a rel="external nofollow" href="http://www.zhihu.com/people/cc-chen-4-85" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              Links
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://github.com/cspp01" rel="external nofollow" title="jsplugin" target="_blank">jsplugin</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">cc</span>
 </div>
 
-
-<div class="powered-by">
-  Exclusive blog, this world is mine. <a rel="external nofollow" class="theme-link" href="https://hexo.io"></a>
-</div>
-
-<div class="theme-info">
-  cc
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "6f0492a87f74476e9df370e5e7ce2270",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("rRxCAb8Kk2bhhTQJInFKaY4v-gzGzoHsz", "eEp5YWpvXhpv3Jvheh4bHCfG");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("GIro8Qd31eQHaDFeUnvpSDaP-gzGzoHsz", "ozedpz4nGJSoFS5nR0kLUrXV");</script>
+<script>
+    function showTime(test) {
+        var query = new AV.Query(test);
+        var entries = [];
+        var $visitors = $(".leancloud_visitors");
+
+        $visitors.each(function () {
+            entries.push( $(this).attr("id").trim() );
+        });
+
+        query.containedIn('url', entries);
+        query.find()
+            .done(function (results) {
+                var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+                if (results.length === 0) {
+                    $visitors.find(COUNT_CONTAINER_REF).text(0);
+                    return;
+                }
+
+                for (var i = 0; i < results.length; i++) {
+                    var item = results[i];
+                    var url = item.get('url');
+                    var time = item.get('time');
+                    var element = document.getElementById(url);
+
+                    $(element).find(COUNT_CONTAINER_REF).text(time);
+                }
+            })
+            .fail(function (object, error) {
+                console.log("Error: " + error.code + " " + error.message);
+            });
+    }
+
+    function addCount(test) {
+        var $visitors = $(".leancloud_visitors");
+        var url = $visitors.attr('id').trim();
+        var title = $visitors.attr('data-flag-title').trim();
+        var query = new AV.Query(test);
+
+        query.equalTo("url", url);
+        query.find({
+            success: function(results) {
+                if (results.length > 0) {
+                    var counter = results[0];
+                    counter.fetchWhenSave(true);
+                    counter.increment("time");
+                    counter.save(null, {
+                        success: function(counter) {
+                            var $element = $(document.getElementById(url));
+                            $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                        },
+                        error: function(counter, error) {
+                            console.log('Failed to save Visitor num, with error message: ' + error.message);
+                        }
+                    });
+                } else {
+                    var newcounter = new test();
+                    /* Set ACL */
+                    var acl = new AV.ACL();
+                    acl.setPublicReadAccess(true);
+                    acl.setPublicWriteAccess(true);
+                    newcounter.setACL(acl);
+                    /* End Set ACL */
+                    newcounter.set("title", title);
+                    newcounter.set("url", url);
+                    newcounter.set("time", 1);
+                    newcounter.save(null, {
+                        success: function(newcounter) {
+                            var $element = $(document.getElementById(url));
+                            $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                        },
+                        error: function(newcounter, error) {
+                            console.log('Failed to create');
+                        }
+                    });
+                }
+            },
+            error: function(error) {
+                console.log('Error:' + error.code + " " + error.message);
             }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
         });
     }
 
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
     $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+        var test = AV.Object.extend("ccp");
+        if ($('.leancloud_visitors').length == 1) {
+            addCount(test);
+        } else if ($('.leancloud_visitors').length > 1) {
+            showTime(test);
+        }
     });
-  </script>
-
-
-
-  
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
 </script>
 
 
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
         }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
         }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-  
-
-  
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
 </body>
 </html>

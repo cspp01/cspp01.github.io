@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ccblog.win/"/>
-  <updated>2017-05-31T12:39:08.161Z</updated>
+  <updated>2017-06-01T05:19:56.347Z</updated>
   <id>http://www.ccblog.win/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.ccblog.win/2017/05/31/jquery%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E5%B8%B8%E7%94%A8%E6%96%B9%E5%BC%8F%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"/>
     <id>http://www.ccblog.win/2017/05/31/jquery显示隐藏常用方式性能测试报告/</id>
     <published>2017-05-31T12:30:23.000Z</published>
-    <updated>2017-05-31T12:39:08.161Z</updated>
+    <updated>2017-06-01T05:19:56.347Z</updated>
     
     <content type="html"><![CDATA[<p>其实我一直就听别人说如果要显示隐藏尽量不要用hide()和show(),其实一直也没实际测试过，因为自己想当然的也以为，毕竟hide()和show()jquery底层要经过不少判断。今天不知怎么得对他们的性能一直很在意，于是就简单做了如下测试</p>
 <p>下面测试了对10000个相同div节点的显示隐藏，测试方法使用了console.time()和console.timeEnd,测试浏览器为谷歌（其它的还没测试）</p>
@@ -60,7 +60,7 @@
     <link href="http://www.ccblog.win/2017/05/05/html,css%E5%A1%AB%E5%9D%91%E8%B7%AF/"/>
     <id>http://www.ccblog.win/2017/05/05/html,css填坑路/</id>
     <published>2017-05-05T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.329Z</updated>
+    <updated>2017-06-01T05:20:02.453Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前端填坑路"><a href="#前端填坑路" class="headerlink" title="前端填坑路"></a>前端填坑路</h3><h4 id="1-外边距合并"><a href="#1-外边距合并" class="headerlink" title="1.外边距合并"></a>1.外边距合并</h4><p>例子：<br>1.子元素设置margin-top;父元素不设置margin-top;,但父元素会出现上边距，子元素相对父元素却不会出现。<br> 2.同级元素上面那个设置margin-bottom：下面那个设置margin-top:可是中间的间距却不是两个边距的和。<br>原因：<br>这个是css默认行为，因为元素没有找到另一个那个元素的边界，只在垂直方向的外边距合并，合并为边距中最大的那个，水平方向的不会，目的只是为了文档美观性（如：在文段落中间如果不合并就会出现两倍的边距，看起来不美观。），而且只发生在文档流中的块级元素，如果是行内块，浮动，和定位则不会合并。<br>解决：<br>1.1父元素设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">overflow:hidden/auto;</div></pre></td></tr></table></figure></p>
 <p>1.2父元素设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">border:1px solid <span class="comment">#;</span></div></pre></td></tr></table></figure></p>
@@ -106,7 +106,7 @@
     <link href="http://www.ccblog.win/2017/04/05/%E5%88%A9%E7%94%A8css%E8%BE%B9%E6%A1%86%E5%81%9A%E5%87%BA%E4%B8%89%E8%A7%92%E5%BD%A2,%E6%A2%AF%E5%BD%A2/"/>
     <id>http://www.ccblog.win/2017/04/05/利用css边框做出三角形,梯形/</id>
     <published>2017-04-05T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.330Z</updated>
+    <updated>2017-06-01T05:19:46.558Z</updated>
     
     <content type="html"><![CDATA[<p>在网页中常能看到三角形，可是我们都知道网页中只有矩形边框，那这些三角形是怎么做出来的呢。其实做出这些三角形是利用了边框。如果了解边宽的话应该都知道边框的结构是下面这样的。<br><img src="http://ooa3lxrpg.bkt.clouddn.com/border.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10" alt="enter image description here"><br>如果我将width,height以及padding都设为0,也就是上图区域1为none,那么渐变为下图这样。<br><img src="http://ooa3lxrpg.bkt.clouddn.com/border1.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10" alt="enter image description here"><br>是不是已经看到4个三角形了，对的，这就是我们需要的，接着就看你需要哪个方向的三角形，然后设置对边为none,侧边两边为透明就可以了，如下图：<br><img src="http://ooa3lxrpg.bkt.clouddn.com/border2.jpg?imageView2/0/q/75|watermark/2/text/d3d3LmNjYmxvZy53aW4=/font/6buR5L2T/fontsize/600/fill/I0Y2RjZGNg==/dissolve/85/gravity/SouthEast/dx/10/dy/10" alt="enter image description here"><br>代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">width:0;</div><div class="line">height:0;</div><div class="line">border-top:40px solid yellow;</div><div class="line">border-left:40px solid transparent;/*transparent和rgba(0,0,0,0)一样*/</div><div class="line">border-right:40px solid transparent;</div><div class="line">或者</div><div class="line">width:0;</div><div class="line">height:0;</div><div class="line">border-width:40px 40px 0 40px;</div><div class="line">border-color:yellow transparent;</div><div class="line">border-style:solid;</div></pre></td></tr></table></figure></p>
 <p>当然如果给它一个width,就可以出现梯形了。</p>
@@ -133,7 +133,7 @@
     <link href="http://www.ccblog.win/2017/04/03/css%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
     <id>http://www.ccblog.win/2017/04/03/css水平垂直居中/</id>
     <published>2017-04-03T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.327Z</updated>
+    <updated>2017-06-01T05:21:10.381Z</updated>
     
     <content type="html"><![CDATA[<p>要让下图中绿色框水平垂直居中，你是怎么实现的，可能每个人都有自己习惯的使用方法。下面是我总结的几种方法废话不多说，直接上菜。<br><img src="http://ooa3lxrpg.bkt.clouddn.com/005K8nLYzy77M9vyXFM4a&amp;690.png" alt="enter image description here"></p>
 <h3 id="1-利用绝对定位"><a href="#1-利用绝对定位" class="headerlink" title="1.利用绝对定位"></a>1.利用绝对定位</h3><p>方法：把top和 left 偏移 50%，在用margin 偏移回去。<br>适合：已经固定大小的元素。做响应的话可能根据实际需要还需要js的操作。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">div1&#123;</div><div class="line">    background:gold;</div><div class="line">    width:500px;</div><div class="line">    height:500px;</div><div class="line">    position:relative;</div><div class="line">&#125;</div><div class="line">div2&#123;</div><div class="line">    width:400px;</div><div class="line">    height:400px;</div><div class="line">    background:greenyellow;</div><div class="line">    position:absolute;</div><div class="line">    top:50%;</div><div class="line">    left:50%;</div><div class="line">    margin-top:-200px;</div><div class="line">    margin-left:-200px;</div><div class="line">&#125;</div><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;</div><div class="line">    &lt;div id=<span class="string">"div2"</span>&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
@@ -161,92 +161,10 @@
   
   <entry>
     <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别/</id>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
     <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.330Z</updated>
-    
-    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
-<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
-<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
-<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
-</blockquote>
-<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
-<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
-<blockquote>
-<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
-<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
-</blockquote>
-<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
-<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
-<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
-<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
-<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">伪类</th>
-<th style="text-align:right">伪元素</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">:active</td>
-<td style="text-align:right">::after</td>
-</tr>
-<tr>
-<td style="text-align:left">:focus</td>
-<td style="text-align:right">::before</td>
-</tr>
-<tr>
-<td style="text-align:left">:hover</td>
-<td style="text-align:right">::first-line</td>
-</tr>
-<tr>
-<td style="text-align:left">:link</td>
-<td style="text-align:right">::first-letter</td>
-</tr>
-<tr>
-<td style="text-align:left">:visited</td>
-<td style="text-align:right">::placeholder</td>
-</tr>
-<tr>
-<td style="text-align:left">:first-child</td>
-<td style="text-align:right">::selection</td>
-</tr>
-<tr>
-<td style="text-align:left">:lang</td>
-</tr>
-<tr>
-<td style="text-align:left">。。。</td>
-</tr>
-</tbody>
-</table>
-<p>我是来打家劫舍的，还不快速速交出银两。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
-&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
-    
-    </summary>
-    
-      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
-    
-      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/hjah/"/>
-    <id>http://www.ccblog.win/2017/03/30/hjah/</id>
-    <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.330Z</updated>
+    <updated>2017-06-01T05:19:35.875Z</updated>
     
     <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
 <p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
@@ -328,7 +246,7 @@
     <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/"/>
     <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本 - 副本/</id>
     <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.330Z</updated>
+    <updated>2017-06-01T05:19:41.797Z</updated>
     
     <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
 <p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
@@ -407,10 +325,10 @@
   
   <entry>
     <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别/</id>
     <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.330Z</updated>
+    <updated>2017-06-01T05:21:50.519Z</updated>
     
     <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
 <p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
@@ -492,7 +410,7 @@
     <link href="http://www.ccblog.win/2017/03/20/%E7%BA%AFcss%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C/"/>
     <id>http://www.ccblog.win/2017/03/20/纯css点击效果/</id>
     <published>2017-03-20T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.330Z</updated>
+    <updated>2017-06-01T05:19:50.908Z</updated>
     
     <content type="html"><![CDATA[<p>平时网页中如果需要出现点击效果的按钮或是菜单，你可能首先想到的是js的点击事件，实现这些利用js虽然也简单，但毕竟是脚本，运行起来，性能上还是会慢些，其实有些点击效果用css也可以实现，运行css那可就比js快多了，下面总结一些用纯css实现的点击效果。</p>
 <h3 id="1-利用单选框和复选框"><a href="#1-利用单选框和复选框" class="headerlink" title="1.利用单选框和复选框"></a>1.利用单选框和复选框</h3><h4 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h4><h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p><img src="http://ooa3lxrpg.bkt.clouddn.com/1.gif" alt="enter image description here"></p>
@@ -529,7 +447,7 @@
     <link href="http://www.ccblog.win/2017/03/19/css%E9%A2%9C%E8%89%B2%E8%A1%A8%E7%A4%BA%E7%A7%8D%E7%B1%BB/"/>
     <id>http://www.ccblog.win/2017/03/19/css颜色表示种类/</id>
     <published>2017-03-19T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.328Z</updated>
+    <updated>2017-06-01T05:23:22.471Z</updated>
     
     <content type="html"><![CDATA[<p>css颜色表示法通常常用和最常见的三种<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background-color:red;</div><div class="line">background-color:<span class="comment">#ff0000;</span></div><div class="line">background-color:rgb(255,0,0);</div></pre></td></tr></table></figure></p>
 <p>hsl颜色表示法，不知大家用没用过，反正我到我写这篇博客之前一直没用过。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">backgroud-color:hsl(0,100%,54%);</div></pre></td></tr></table></figure></p>
@@ -561,7 +479,7 @@
     <link href="http://www.ccblog.win/2017/03/14/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F/"/>
     <id>http://www.ccblog.win/2017/03/14/hexo主题配置和修改样式/</id>
     <published>2017-03-14T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.329Z</updated>
+    <updated>2017-06-01T05:21:35.263Z</updated>
     
     <content type="html"><![CDATA[<h2 id="继续叨叨叨"><a href="#继续叨叨叨" class="headerlink" title="继续叨叨叨"></a>继续叨叨叨</h2><p>上一篇介绍了hexo的安装和部署（还没部署的小伙伴<a href="http://www.ccblog.win/2017/04/11/hello-world">点这里</a>)，这篇咱们接着上篇介绍怎么应用主题next和优化next。</p>
 <h2 id="next主题"><a href="#next主题" class="headerlink" title="next主题"></a>next主题</h2><p>hexo的主题很多，但还是觉得next符合我的感觉，简洁大气，耐看。毕竟是博客，文章才是最主要的，花里胡哨的主题太宣兵夺主了。</p>
@@ -603,7 +521,7 @@
     <link href="http://www.ccblog.win/2017/03/12/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>http://www.ccblog.win/2017/03/12/hexo个人博客搭建/</id>
     <published>2017-03-12T00:15:23.000Z</published>
-    <updated>2017-05-31T13:46:59.217Z</updated>
+    <updated>2017-06-01T05:22:12.008Z</updated>
     
     <content type="html"><![CDATA[<h3 id="叨的叨叨以叨叨，那是什么叨"><a href="#叨的叨叨以叨叨，那是什么叨" class="headerlink" title="叨的叨叨以叨叨，那是什么叨"></a>叨的叨叨以叨叨，那是什么叨</h3><p>该说啥呢。。。博客不是第一次写，但在自己搭建的博客上写文章的确是第一次。十分兴奋。看着自己辛苦搭建出来的博客，一点一点达到自己心目中的样子，这种感觉只有做过的人才可以体会到。如果你还在犹豫，那就别墨迹了。废话不多说。<br>搭建自己的博客，当时我查的时候好多人推荐用Wordpress，既然这么多人推荐，那我就不用，怎么滴。好吧被看穿了，其实是我太穷了，没钱租服务器。虽然好像也可以免费做出来，这个不太清楚，因为没太了解。就在我茶不思饭不想的时候，我发现了Hexo，这个真是太符合我了。利用github来部署静态博客，谁叫咱们就是干前端的呢。啥也不说了，立马开干。 </p>
 <h3 id="适合人群"><a href="#适合人群" class="headerlink" title="适合人群"></a>适合人群</h3><p>哈哈你来看这篇文章说明你就适合<br>使用windows的你们（其他系统差不多）</p>
@@ -658,7 +576,7 @@
     <link href="http://www.ccblog.win/2017/03/01/hello-world/"/>
     <id>http://www.ccblog.win/2017/03/01/hello-world/</id>
     <published>2017-03-01T00:15:23.000Z</published>
-    <updated>2017-05-08T07:24:55.328Z</updated>
+    <updated>2017-06-01T05:22:27.653Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
