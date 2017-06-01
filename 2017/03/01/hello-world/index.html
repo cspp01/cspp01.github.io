@@ -47,7 +47,29 @@
         })();
     </script>
     
+        <script type="text/javascript" id="hexo.configuration">
+            var CONFIG = {
+                root: '/',
+                algolia: {
+                    applicationID: '148WKKLBJ2',
+                    apiKey: '1b27867f0ba7ad358543a84d6d30bcb3',
+                    indexName: 'test',
+                    hits: {
+                        per_page: ''
+                    },
+                    labels: {
+                        input_placeholder: '请输入要搜索的字段...',
+                        hits_empty: '没有查找到和 「${query}」相关的内容',
+                        hits_stats: '总共${hits} 条相关条目，使用了 ${time} 毫秒'
+                    }
+                }
+            };
+        </script>
+    
     <script src="http://opu30aljn.bkt.clouddn.com/jquery.js"></script>
+    
+        <script src="http://opu30aljn.bkt.clouddn.com/instantsearch.js"></script>
+        <script src="/js/thirdparty/algolia.js"></script>
     
     <script src="/js/script.js"></script>
 </head>
@@ -175,15 +197,15 @@
     </div>
     <p class="my-social">
         
-            <a href="https://github.com/cspp01" class="my-social-me2">github</a>
+            <a href="https://github.com/cspp01" class="my-social-me4">github</a>
         
             <a href="/" class="my-social-me4">twitter</a>
         
-            <a href="http://weibo.com/5262373626/profile?topnav=1&wvr=6&is_all=1" class="my-social-me2">weibo</a>
+            <a href="http://weibo.com/5262373626/profile?topnav=1&wvr=6&is_all=1" class="my-social-me1">weibo</a>
         
-            <a href="http://douban.com/people/160374034/" class="my-social-me5">豆瓣</a>
+            <a href="http://douban.com/people/160374034/" class="my-social-me4">豆瓣</a>
         
-            <a href="http://www.zhihu.com/people/cc-chen-4-85" class="my-social-me3">知乎</a>
+            <a href="http://www.zhihu.com/people/cc-chen-4-85" class="my-social-me4">知乎</a>
         
     </p>
     <div class="my-post">
@@ -268,6 +290,27 @@
 </div>
 <label for="left-information"></label>
 
+
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <div class="algolia-search-input-icon">
+                    <i class="fa fa-search"></i>
+                </div>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close">
+          <i class="fa fa-times-circle"></i>
+        </span>
+        </div>
+    </div>
 
 
 <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
