@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -1269,8 +1270,8 @@ article#logo {
       max-width: 100%;
       border: 1px dotted #ccc; }
   #page #page-post-content figure.highlight, #post #page-post-content figure.highlight {
-    background: #2d2d2d;
-    color: #fff;
+    background: #f5f5f5;
+    color: #333;
     line-height: 40px;
     font-size: 13px;
     overflow-x: auto;
@@ -1287,7 +1288,7 @@ article#logo {
       #page #page-post-content figure.highlight table .gutter, #post #page-post-content figure.highlight table .gutter {
         width: 40px;
         text-align: center;
-        background: #111;
+        background: #efefef;
         -webkit-border-radius: 5px 0 0 5px;
         -moz-border-radius: 5px 0 0 5px;
         border-radius: 5px 0 0 5px;
@@ -1297,8 +1298,11 @@ article#logo {
       #page #page-post-content figure.highlight table .string, #post #page-post-content figure.highlight table .string {
         color: lightseagreen; }
       #page #page-post-content figure.highlight table .code, #post #page-post-content figure.highlight table .code {
-        color: #cfcfcf;
+        color: #333;
         padding-left: 10px; }
+        #page #page-post-content figure.highlight table .code .line span, #post #page-post-content figure.highlight table .code .line span {
+          color: #999;
+          /*注释*/ }
   #page #page-post-content blockquote, #post #page-post-content blockquote {
     border-left: 5px solid #999;
     background: #f3f3f3;
