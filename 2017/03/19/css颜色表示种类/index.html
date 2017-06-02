@@ -6,7 +6,7 @@
     
     <title>post | conci</title>
     <meta name="description" content="css颜色表示法通常常用和最常见的三种123background-color:red;background-color:#ff0000;background-color:rgb(255,0,0); hsl颜色表示法，不知大家用没用过，反正我到我写这篇博客之前一直没用过。1backgroud-color:hsl(0,100%,54%); 是不是感觉写法和rgb很像，rgb分别代表三原色，hsl分别代">
-<meta name="keywords" content="css,颜色,hsl,css3">
+<meta name="keywords" content="css,css3,颜色,hsl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hsl颜色表示法">
 <meta property="og:url" content="http://www.ccblog.win/2017/03/19/css颜色表示种类/index.html">
@@ -179,9 +179,12 @@
   
     <a href="/2017/03/20/纯css点击效果/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-        
-        
-      <div class="article-nav-title">undefined</div>
+      <div class="article-nav-title">
+          
+          
+          纯css点击效果
+          
+      </div>
     </a>
   
 </nav>
@@ -221,15 +224,15 @@
     </div>
     <p class="my-social">
         
-            <a href="https://github.com/cspp01" class="my-social-me1">github</a>
+            <a href="https://github.com/cspp01" class="my-social-me2">github</a>
         
-            <a href="/" class="my-social-me4">twitter</a>
+            <a href="/" class="my-social-me3">twitter</a>
         
-            <a href="http://weibo.com/5262373626/profile?topnav=1&wvr=6&is_all=1" class="my-social-me4">weibo</a>
+            <a href="http://weibo.com/5262373626/profile?topnav=1&wvr=6&is_all=1" class="my-social-me1">weibo</a>
         
-            <a href="http://douban.com/people/160374034/" class="my-social-me4">豆瓣</a>
+            <a href="http://douban.com/people/160374034/" class="my-social-me2">豆瓣</a>
         
-            <a href="http://www.zhihu.com/people/cc-chen-4-85" class="my-social-me3">知乎</a>
+            <a href="http://www.zhihu.com/people/cc-chen-4-85" class="my-social-me1">知乎</a>
         
     </p>
     <div class="my-post">
@@ -300,6 +303,9 @@
         
     </div>
 </div>
+            
+    
+
         </section>
     </div>
     <footer id="footer">
@@ -451,4 +457,18 @@
 </script>
 
 </body>
+
+<script src="/js/getTitle.js"></script>
+    <script>
+        $(function(){
+            var __warehouse=document.getElementById('warehouse');
+            var __content=document.getElementById('post');
+            var cus={
+                'title':'none',
+                'article':__content,
+            };
+            __warehouse.__newCc(cus);
+        });
+    </script>
+
 </html>

@@ -1345,7 +1345,8 @@ article#logo {
       #page #page-post-tags a:hover, #post #page-post-tags a:hover {
         color: #cd503f; }
   #page #page-post-reward, #post #page-post-reward {
-    margin-top: 30px; }
+    margin-top: 30px;
+    margin-bottom: 30px; }
     #page #page-post-reward > label, #post #page-post-reward > label {
       display: block;
       width: 70px;
