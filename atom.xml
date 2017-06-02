@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ccblog.win/"/>
-  <updated>2017-06-01T11:12:34.972Z</updated>
+  <updated>2017-06-02T02:47:32.808Z</updated>
   <id>http://www.ccblog.win/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://www.ccblog.win/2017/06/01/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AEconci/"/>
     <id>http://www.ccblog.win/2017/06/01/hexo主题配置conci/</id>
     <published>2017-06-01T11:01:23.000Z</published>
-    <updated>2017-06-01T11:12:34.972Z</updated>
+    <updated>2017-06-02T02:47:32.808Z</updated>
     
     <content type="html"><![CDATA[<h2 id="继续叨叨叨"><a href="#继续叨叨叨" class="headerlink" title="继续叨叨叨"></a>继续叨叨叨</h2><p>之前介绍了hexo的安装和部署（还没部署的小伙伴<a href="http://www.ccblog.win/2017/03/12/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">点这里</a>)，这篇咱们接着介绍怎么应用主题。</p>
-<h2 id="conci主题-github"><a href="#conci主题-github" class="headerlink" title="conci主题(github)"></a>conci主题(<a href="https://github.com/cspp01/concise" target="_blank" rel="external">github</a>)</h2><p>hexo的主题很多，这里主要是配置我自己开发的conci主题</p>
+<h2 id="conci主题-github"><a href="#conci主题-github" class="headerlink" title="conci主题(github)"></a>conci主题(<a href="https://github.com/cspp01/concise" target="_blank" rel="external">github</a>)</h2><p>这里主要是配置的conci主题</p>
 <h3 id="下载conci"><a href="#下载conci" class="headerlink" title="下载conci"></a>下载conci</h3><p>hexo的主题都存放在themes文件夹下，在themes文件夹下右键Git bash Here，输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/cspp01/concise.git</div></pre></td></tr></table></figure></p>
 <p>然后在主_config.yml文件中找到theme字段改为concise。</p>
 <h3 id="安装scss预编译插件"><a href="#安装scss预编译插件" class="headerlink" title="安装scss预编译插件"></a>安装scss预编译插件</h3><p>由于我是用的是scss写的css代码，所以先安装sass插件。在主根目录下右键Git bash Here，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-renderer-sass --save</div></pre></td></tr></table></figure></p>
@@ -512,11 +512,11 @@
     
       <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
     
-      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
-    
       <category term="颜色" scheme="http://www.ccblog.win/tags/%E9%A2%9C%E8%89%B2/"/>
     
       <category term="hsl" scheme="http://www.ccblog.win/tags/hsl/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
     
   </entry>
   
@@ -554,11 +554,11 @@
       <category term="hexo博客搭建" scheme="http://www.ccblog.win/categories/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
       <category term="hexo" scheme="http://www.ccblog.win/tags/hexo/"/>
     
       <category term="next" scheme="http://www.ccblog.win/tags/next/"/>
-    
-      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
     
   </entry>
   
