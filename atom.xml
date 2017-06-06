@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ccblog.win/"/>
-  <updated>2017-06-06T04:25:27.714Z</updated>
+  <updated>2017-06-06T06:28:09.436Z</updated>
   <id>http://www.ccblog.win/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bootstrap解析-排版</title>
+    <link href="http://www.ccblog.win/2017/06/06/bootstrap%E8%A7%A3%E6%9E%90-%E6%8E%92%E7%89%88/"/>
+    <id>http://www.ccblog.win/2017/06/06/bootstrap解析-排版/</id>
+    <published>2017-06-06T05:38:23.000Z</published>
+    <updated>2017-06-06T06:28:09.436Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;36px   .h1</div><div class="line">&lt;h2&gt;30px   .h2</div><div class="line">&lt;h3&gt;24px   .h3</div><div class="line">&lt;h4&gt;18px   .h4</div><div class="line">&lt;h5&gt;14px   .h5</div><div class="line">&lt;h6&gt;12px   .h6</div><div class="line"></div><div class="line">&lt;small&gt; 当前字体的65%   .small</div></pre></td></tr></table></figure>
+<ol>
+<li>前面4个各差6px,h4-h5差4px,h5-h6差2px</li>
+<li>.h*是为了给inline的文本赋予标题的样式</li>
+<li><small>为副标题，.small也可以定义副标题或给inline的文本定义副标题样式</small></li>
+</ol>
+<h3 id="全局"><a href="#全局" class="headerlink" title="全局"></a>全局</h3><ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">font-size: 14px;</div><div class="line">line-height: 1.42857143;(倍字体)</div><div class="line">color: #333;</div><div class="line">background: #fff;</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>margin-top: 10px<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### ```.lead</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">margin-bottom: 20px;</div><div class="line">font-weight: 300;</div><div class="line">line-height: 1.4;</div><div class="line">margin-top: 10px</div><div class="line"></div><div class="line">1. 屏幕宽768px以上font-size: 21px;</div><div class="line">2. 屏幕宽768px以下font-size: 16px;</div></pre></td></tr></table></figure>
+<h3 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#### ```&lt;mark&gt;```标记标签</div></pre></td></tr></table></figure></h3><p>padding: .2em;<br>background-color: #fcf8e3;<br>color:#000;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#### ```&lt;del&gt;```删除线，删除的文本 | ```&lt;s&gt;```无用的文本</div></pre></td></tr></table></figure></p>
+<p>text-decoration: line-through;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">两个标签展示的效果一样，只是&lt;del&gt;是给搜索引擎看的，&lt;s&gt;是给用户看的。</div><div class="line"></div><div class="line">#### ```&lt;ins&gt;```插入的文本 | ```&lt;u&gt;```带下划线的文本</div></pre></td></tr></table></figure></p>
+<p>text-decoration: underline<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">两个标签展示的效果也一样，&lt;ins&gt;是给搜索引擎看的，&lt;u&gt;是给用户看的</div><div class="line"></div><div class="line">#### ```&lt;small&gt;``` | ```.small``` ( 小号文本 )</div></pre></td></tr></table></figure></p>
+<p>font-size: 85% // 当前字体的85%<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在```inline```文本内为当前字体的85%，和在```&lt;h*&gt;```内展示不同。</div><div class="line"></div><div class="line">#### ```&lt;strong&gt;``` 和 ```&lt;em&gt;``` (着重强调和斜体强调)</div><div class="line">#### 对齐</div></pre></td></tr></table></figure></p>
+<p>.text-left  // 左对齐<br>.text-center  // 居中对齐<br>.text-right  // 右对齐<br>.text-justify  // 分散对齐<br>.text-noerap  // 不换行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#### 文本大小写</div></pre></td></tr></table></figure></p>
+<p>.text-lowercase  // 转小写<br>.text-uppercase  // 转大写<br>.text-capitalize  // 首字母大写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#### ```&lt;abbr&gt;``` 缩列语</div></pre></td></tr></table></figure></p>
+<p>cursor: help;<br>border-bottom: 1px dotted #777;<br>text-decoration:none; // 取消浏览器默认样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```.initialism``` (首字母缩略语)</div></pre></td></tr></table></figure></p>
+<p>font-size: 90%;<br>text-transform: uppercase;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">给```&lt;abbr&gt;```添加会比当前字体小一些。</div><div class="line">#### ```&lt;blockquote&gt;``` 引用</div><div class="line">默认左边</div></pre></td></tr></table></figure></p>
+<p>padding: 10px 20px;<br>margin: 0 0 20px;<br>font-size: 17.5px;<br>border-left: 5px solid #eee;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```.blockquote-reverse```右边</div></pre></td></tr></table></figure></p>
+<p>padding-right: 15px;<br>padding-left: 0;<br>text-align: right;<br>border-right: 5px solid #eee;<br>border-left: 0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#### 列表</div><div class="line">##### ```.list-unstyled``` ( 移除默认```list-style``` )</div><div class="line"></div><div class="line">只针对直接```&lt;li&gt;</div></pre></td></tr></table></figure></p>
+<h5 id="-1"><a href="#-1" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></h5><p>.display:inline-block;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">只针对直接```&lt;li&gt;</div></pre></td></tr></table></figure></p>
+<h5 id="-2"><a href="#-2" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">使得```&lt;dl&gt;&lt;dt&gt;&lt;dd&gt;```水平排列</div></pre></td></tr></table></figure></h5><ol>
+<li><p>屏幕width&gt;768px时<br>dt style<br>.dl-horizontal dt {<br> width:180px;(超出会出现三个小点的省列号)<br> float: left;<br> overflow: hidden;<br> clear: left;<br> text-align: right;<br> text-overflow: ellipsis;<br> white-space: nowrap;<br>}<br>dl style<br>.dl-horizontal dd {<br> margin-left: 180px;<br>}</p>
+</li>
+<li><p>屏幕width&lt;768px时<br>.dl-horizontal dt,.dl-horizontal dd {<br> width:100%;<br>}<br>```</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div c
+    
+    </summary>
+    
+      <category term="bootstrap解析" scheme="http://www.ccblog.win/categories/bootstrap%E8%A7%A3%E6%9E%90/"/>
+    
+    
+      <category term="bootstrap" scheme="http://www.ccblog.win/tags/bootstrap/"/>
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="html" scheme="http://www.ccblog.win/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>bootstrap解析-栅格系统</title>
@@ -281,10 +338,10 @@
   
   <entry>
     <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别/</id>
     <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-06-01T05:19:35.875Z</updated>
+    <updated>2017-06-01T05:21:50.519Z</updated>
     
     <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
 <p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
@@ -363,10 +420,10 @@
   
   <entry>
     <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别/</id>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
     <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-06-01T05:21:50.519Z</updated>
+    <updated>2017-06-01T05:19:35.875Z</updated>
     
     <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
 <p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
