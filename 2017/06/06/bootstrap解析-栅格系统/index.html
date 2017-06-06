@@ -4,16 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
-    <title>tag: css3 | conci</title>
-    <meta name="description" content="求知若饥 虚心若愚">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cc">
-<meta property="og:url" content="http://www.ccblog.win/tags/css3/index.html">
+    <title>post | conci</title>
+    <meta name="description" content="bootstrap解析-栅格系统.container(布局容器)屏幕宽1200px以上（col-lg） 默认width为1170px padding,lefet和right各为15px,所以内容width为1140px;  屏幕宽992px以上(col-md) 默认width为970px padding,lefet和right各为15px,所以内容width为940px;  屏幕宽768px以上(">
+<meta name="keywords" content="bootstrap,css,html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bootstrap解析-栅格系统">
+<meta property="og:url" content="http://www.ccblog.win/2017/06/06/bootstrap解析-栅格系统/index.html">
 <meta property="og:site_name" content="cc">
-<meta property="og:description" content="求知若饥 虚心若愚">
+<meta property="og:description" content="bootstrap解析-栅格系统.container(布局容器)屏幕宽1200px以上（col-lg） 默认width为1170px padding,lefet和right各为15px,所以内容width为1140px;  屏幕宽992px以上(col-md) 默认width为970px padding,lefet和right各为15px,所以内容width为940px;  屏幕宽768px以上(">
+<meta property="og:updated_time" content="2017-06-06T04:25:27.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cc">
-<meta name="twitter:description" content="求知若饥 虚心若愚">
+<meta name="twitter:title" content="bootstrap解析-栅格系统">
+<meta name="twitter:description" content="bootstrap解析-栅格系统.container(布局容器)屏幕宽1200px以上（col-lg） 默认width为1170px padding,lefet和right各为15px,所以内容width为1140px;  屏幕宽992px以上(col-md) 默认width为970px padding,lefet和right各为15px,所以内容width为940px;  屏幕宽768px以上(">
     
         <link rel="alternate" href="true" title="cc" type="application/atom+xml">
     
@@ -112,81 +114,135 @@
 </article>
     <div id="main" class="clearfix">
         <section id="main-left" class="left">
-            
-    
+            <article id="post">
+    <h1>bootstrap解析-栅格系统</h1>
+    <p>
         
+            <span class="visitors">visitors
+                <span id="/2017/06/06/bootstrap解析-栅格系统/" class="leancloud_visitors" data-flag-title="bootstrap解析-栅格系统">
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+            </span>&nbsp;&nbsp;•&nbsp;&nbsp;
+        
+        
+            <span class="tag">
+                  <a class="article-category-link" href="/categories/bootstrap解析/">bootstrap解析</a>
+            </span>&nbsp;&nbsp;•&nbsp;&nbsp;
+        
+        <span class="date">2017.06.06</span>
+    </p>
+    <div id="page-post-content">
+        <h1 id="bootstrap解析-栅格系统"><a href="#bootstrap解析-栅格系统" class="headerlink" title="bootstrap解析-栅格系统"></a>bootstrap解析-栅格系统</h1><h3 id="container-布局容器"><a href="#container-布局容器" class="headerlink" title=".container(布局容器)"></a>.container(布局容器)</h3><h5 id="屏幕宽1200px以上（col-lg）"><a href="#屏幕宽1200px以上（col-lg）" class="headerlink" title="屏幕宽1200px以上（col-lg）"></a>屏幕宽1200px以上（col-lg）</h5><ol>
+<li>默认width为1170px</li>
+<li>padding,lefet和right各为15px,所以内容width为1140px;</li>
+</ol>
+<h5 id="屏幕宽992px以上-col-md"><a href="#屏幕宽992px以上-col-md" class="headerlink" title="屏幕宽992px以上(col-md)"></a>屏幕宽992px以上(col-md)</h5><ol>
+<li>默认width为970px</li>
+<li>padding,lefet和right各为15px,所以内容width为940px;</li>
+</ol>
+<h5 id="屏幕宽768px以上-col-sm"><a href="#屏幕宽768px以上-col-sm" class="headerlink" title="屏幕宽768px以上(col-sm)"></a>屏幕宽768px以上(col-sm)</h5><ol>
+<li>默认width为750px</li>
+<li>padding,lefet和right各为15px,所以内容width为720px;</li>
+</ol>
+<h5 id="屏幕宽768px以下-col-xs"><a href="#屏幕宽768px以下-col-xs" class="headerlink" title="屏幕宽768px以下(col-xs)"></a>屏幕宽768px以下(col-xs)</h5><ol>
+<li>默认width为100%</li>
+<li>padding,lefet和right各为15px,所以内容width为100%-30px;</li>
+</ol>
+<h3 id="container-fluid-流式布局容器"><a href="#container-fluid-流式布局容器" class="headerlink" title=".container-fluid(流式布局容器)"></a>.container-fluid(流式布局容器)</h3><ol>
+<li>width为100%</li>
+<li>其他和.container一样</li>
+</ol>
+<h3 id="row-行"><a href="#row-行" class="headerlink" title=".row(行)"></a>.row(行)</h3><ol>
+<li>默认margin-left和margin-right为-15px;</li>
+<li>这样就抵消掉了.container的padding,row的显示区域width就为.container的width了</li>
+<li>利用::after清楚浮动</li>
+</ol>
+<h3 id="col-列"><a href="#col-列" class="headerlink" title=".col-(列)"></a>.col-(列)</h3><ol>
+<li>用@media来设置width对应百分比</li>
+<li>padding,lefet和right各为15px</li>
+<li>float:left</li>
+<li>position:relative</li>
+<li>min-height:1px</li>
+</ol>
+<h3 id="col-offset-移动"><a href="#col-offset-移动" class="headerlink" title=".col-*-offset-(移动)"></a>.col-*-offset-(移动)</h3><ol>
+<li>利用@media来设置margin-left相应的百分比</li>
+</ol>
+<h3 id="col-push-和-col-pull-列排序"><a href="#col-push-和-col-pull-列排序" class="headerlink" title=".col--push-和.col--pull-(列排序)"></a>.col-<em>-push-和.col-</em>-pull-(列排序)</h3><ol>
+<li>由于col-设置了posistion:relative所以通过设置left(push)和righ(pull)来改变节点的位置。</li>
+</ol>
+<h3 id="其他情况"><a href="#其他情况" class="headerlink" title="其他情况"></a>其他情况</h3><h4 id="列的高度不同时"><a href="#列的高度不同时" class="headerlink" title="列的高度不同时"></a>列的高度不同时</h4><h5 id="解决-clearfix-清除浮动"><a href="#解决-clearfix-清除浮动" class="headerlink" title="解决 .clearfix(清除浮动)"></a>解决 .clearfix(清除浮动)</h5><ol>
+<li>由于列都浮动了，所以阈值时会产生一些问题，所需要配合清除相应位置的浮动来解决</li>
+</ol>
+<h4 id="列大于12时"><a href="#列大于12时" class="headerlink" title="列大于12时"></a>列大于12时</h4><ol>
+<li>由于列浮动了，所以超出的列会自动换行排列</li>
+</ol>
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><ol>
+<li>由于以上属性设置，所以嵌套写.row和.col-就可以</li>
+</ol>
+<p>bootstrap的栅格系统基本就是这些，所以也没什么神秘的，你自己也完全可以写出自己的栅格系统来。</p>
 
-        <section id="archive" class="clearfix">
-            <header>
-                css3<span>tags</span>
-            </header>
-            
-                
-                    <article class="archive-page">
-                        <header><a href="/2017/05/05/html,css填坑路/">css,html填坑路</a></header>
-                        <time>2017,05,05</time>
-                    </article>
-                
-                
-            
-                
-                    <article class="archive-page archive-right">
-                        <header><a href="/2017/04/05/利用css边框做出三角形,梯形/">利用css边框做出三角形,梯形</a></header>
-                        <time>2017,04,05</time>
-                    </article>
-                
-                
-            
-                
-                    <article class="archive-page">
-                        <header><a href="/2017/04/03/css水平垂直居中/">css水平垂直居中</a></header>
-                        <time>2017,04,03</time>
-                    </article>
-                
-                
-            
-                
-                    <article class="archive-page archive-right">
-                        <header><a href="/2017/03/30/伪类和伪元素的区别 - 副本/">伪类和伪元素的区别</a></header>
-                        <time>2017,03,30</time>
-                    </article>
-                
-                
-            
-                
-                    <article class="archive-page">
-                        <header><a href="/2017/03/30/伪类和伪元素的区别/">伪类和伪元素的区别</a></header>
-                        <time>2017,03,30</time>
-                    </article>
-                
-                
-            
-                
-                    <article class="archive-page archive-right">
-                        <header><a href="/2017/03/30/伪类和伪元素的区别 - 副本 - 副本/">伪类和伪元素的区别</a></header>
-                        <time>2017,03,30</time>
-                    </article>
-                
-                
-            
-                
-                    <article class="archive-page">
-                        <header><a href="/2017/03/20/纯css点击效果/">纯css点击效果</a></header>
-                        <time>2017,03,20</time>
-                    </article>
-                
-                
-            
-                
-                    <article class="archive-page archive-right">
-                        <header><a href="/2017/03/19/css颜色表示种类/">hsl颜色表示法</a></header>
-                        <time>2017,03,19</time>
-                    </article>
-                
-                
-            
-        </section>
+    </div>
     
+        <div id="page-post-tags">
+              <a class="article-tag-link" href="/tags/bootstrap/">bootstrap</a>&nbsp;/&nbsp;<a class="article-tag-link" href="/tags/css/">css</a>&nbsp;/&nbsp;<a class="article-tag-link" href="/tags/html/">html</a>
+        </div>
+    
+    
+        <div id="page-post-reward">
+            <label for="page-post-inp">打赏</label>
+            <input type="checkbox" id="page-post-inp">
+            <ul class="clearfix">
+                <li>
+                    <a href="javascript:void(0);">
+                        <img src="http://ooa3lxrpg.bkt.clouddn.com/wx.jpg?imageView2/2/w/180">
+                    </a>
+                    <p>微信</p>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <img src="http://ooa3lxrpg.bkt.clouddn.com/zfb.jpg?imageView2/2/w/180">
+                    </a>
+                    <p>支付宝</p>
+                </li>
+            </ul>
+        </div>
+    
+    
+<nav id="article-nav" class="clearfix">
+  
+    <a href="/2017/06/01/hexo主题配置conci/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          
+          hexo主题配置conci
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+</article>
+
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"4","bdPos":"left","bdTop":"100"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+    var cloudTieConfig = {
+        url: document.location.href,
+        sourceId: '',
+        productKey: '6f0492a87f74476e9df370e5e7ce2270',
+        target: 'cloud-tie-wrapper'
+    };
+    var yunManualLoad = true;
+    Tie.loader('aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s', true);
+</script>
+
 
 
         </section>
@@ -281,6 +337,8 @@
         
     </div>
 </div>
+            
+            <div id="warehouse"></div>
             
         </section>
     </div>
@@ -433,5 +491,18 @@
 </script>
 
 </body>
+
+<script src="/js/getTitle.js"></script>
+    <script>
+        $(function(){
+            var __warehouse=document.getElementById('warehouse');
+            var __content=document.getElementById('post');
+            var cus={
+                'title':'none',
+                'article':__content,
+            };
+            __warehouse.__newCc(cus);
+        });
+    </script>
 
 </html>

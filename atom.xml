@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ccblog.win/"/>
-  <updated>2017-06-02T02:47:32.808Z</updated>
+  <updated>2017-06-06T04:25:27.714Z</updated>
   <id>http://www.ccblog.win/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bootstrap解析-栅格系统</title>
+    <link href="http://www.ccblog.win/2017/06/06/bootstrap%E8%A7%A3%E6%9E%90-%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://www.ccblog.win/2017/06/06/bootstrap解析-栅格系统/</id>
+    <published>2017-06-06T04:15:23.000Z</published>
+    <updated>2017-06-06T04:25:27.714Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="bootstrap解析-栅格系统"><a href="#bootstrap解析-栅格系统" class="headerlink" title="bootstrap解析-栅格系统"></a>bootstrap解析-栅格系统</h1><h3 id="container-布局容器"><a href="#container-布局容器" class="headerlink" title=".container(布局容器)"></a>.container(布局容器)</h3><h5 id="屏幕宽1200px以上（col-lg）"><a href="#屏幕宽1200px以上（col-lg）" class="headerlink" title="屏幕宽1200px以上（col-lg）"></a>屏幕宽1200px以上（col-lg）</h5><ol>
+<li>默认width为1170px</li>
+<li>padding,lefet和right各为15px,所以内容width为1140px;</li>
+</ol>
+<h5 id="屏幕宽992px以上-col-md"><a href="#屏幕宽992px以上-col-md" class="headerlink" title="屏幕宽992px以上(col-md)"></a>屏幕宽992px以上(col-md)</h5><ol>
+<li>默认width为970px</li>
+<li>padding,lefet和right各为15px,所以内容width为940px;</li>
+</ol>
+<h5 id="屏幕宽768px以上-col-sm"><a href="#屏幕宽768px以上-col-sm" class="headerlink" title="屏幕宽768px以上(col-sm)"></a>屏幕宽768px以上(col-sm)</h5><ol>
+<li>默认width为750px</li>
+<li>padding,lefet和right各为15px,所以内容width为720px;</li>
+</ol>
+<h5 id="屏幕宽768px以下-col-xs"><a href="#屏幕宽768px以下-col-xs" class="headerlink" title="屏幕宽768px以下(col-xs)"></a>屏幕宽768px以下(col-xs)</h5><ol>
+<li>默认width为100%</li>
+<li>padding,lefet和right各为15px,所以内容width为100%-30px;</li>
+</ol>
+<h3 id="container-fluid-流式布局容器"><a href="#container-fluid-流式布局容器" class="headerlink" title=".container-fluid(流式布局容器)"></a>.container-fluid(流式布局容器)</h3><ol>
+<li>width为100%</li>
+<li>其他和.container一样</li>
+</ol>
+<h3 id="row-行"><a href="#row-行" class="headerlink" title=".row(行)"></a>.row(行)</h3><ol>
+<li>默认margin-left和margin-right为-15px;</li>
+<li>这样就抵消掉了.container的padding,row的显示区域width就为.container的width了</li>
+<li>利用::after清楚浮动</li>
+</ol>
+<h3 id="col-列"><a href="#col-列" class="headerlink" title=".col-(列)"></a>.col-(列)</h3><ol>
+<li>用@media来设置width对应百分比</li>
+<li>padding,lefet和right各为15px</li>
+<li>float:left</li>
+<li>position:relative</li>
+<li>min-height:1px</li>
+</ol>
+<h3 id="col-offset-移动"><a href="#col-offset-移动" class="headerlink" title=".col-*-offset-(移动)"></a>.col-*-offset-(移动)</h3><ol>
+<li>利用@media来设置margin-left相应的百分比</li>
+</ol>
+<h3 id="col-push-和-col-pull-列排序"><a href="#col-push-和-col-pull-列排序" class="headerlink" title=".col--push-和.col--pull-(列排序)"></a>.col-<em>-push-和.col-</em>-pull-(列排序)</h3><ol>
+<li>由于col-设置了posistion:relative所以通过设置left(push)和righ(pull)来改变节点的位置。</li>
+</ol>
+<h3 id="其他情况"><a href="#其他情况" class="headerlink" title="其他情况"></a>其他情况</h3><h4 id="列的高度不同时"><a href="#列的高度不同时" class="headerlink" title="列的高度不同时"></a>列的高度不同时</h4><h5 id="解决-clearfix-清除浮动"><a href="#解决-clearfix-清除浮动" class="headerlink" title="解决 .clearfix(清除浮动)"></a>解决 .clearfix(清除浮动)</h5><ol>
+<li>由于列都浮动了，所以阈值时会产生一些问题，所需要配合清除相应位置的浮动来解决</li>
+</ol>
+<h4 id="列大于12时"><a href="#列大于12时" class="headerlink" title="列大于12时"></a>列大于12时</h4><ol>
+<li>由于列浮动了，所以超出的列会自动换行排列</li>
+</ol>
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><ol>
+<li>由于以上属性设置，所以嵌套写.row和.col-就可以</li>
+</ol>
+<p>bootstrap的栅格系统基本就是这些，所以也没什么神秘的，你自己也完全可以写出自己的栅格系统来。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;bootstrap解析-栅格系统&quot;&gt;&lt;a href=&quot;#bootstrap解析-栅格系统&quot; class=&quot;headerlink&quot; title=&quot;bootstrap解析-栅格系统&quot;&gt;&lt;/a&gt;bootstrap解析-栅格系统&lt;/h1&gt;&lt;h3 id=&quot;container
+    
+    </summary>
+    
+      <category term="bootstrap解析" scheme="http://www.ccblog.win/categories/bootstrap%E8%A7%A3%E6%9E%90/"/>
+    
+    
+      <category term="bootstrap" scheme="http://www.ccblog.win/tags/bootstrap/"/>
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="html" scheme="http://www.ccblog.win/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo主题配置conci</title>
@@ -141,9 +215,9 @@
     
       <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
     
-      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
-    
       <category term="html" scheme="http://www.ccblog.win/tags/html/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
     
   </entry>
   
@@ -193,6 +267,88 @@
     <summary type="html">
     
       &lt;p&gt;要让下图中绿色框水平垂直居中，你是怎么实现的，可能每个人都有自己习惯的使用方法。下面是我总结的几种方法废话不多说，直接上菜。&lt;br&gt;&lt;img src=&quot;http://ooa3lxrpg.bkt.clouddn.com/005K8nLYzy77M9vyXFM4a&amp;amp;69
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>伪类和伪元素的区别</title>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
+    <published>2017-03-30T00:15:23.000Z</published>
+    <updated>2017-06-01T05:19:35.875Z</updated>
+    
+    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
+<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
+<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
+<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
+</blockquote>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
+<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
+<blockquote>
+<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
+<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
+</blockquote>
+<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
+<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
+<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
+<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">伪类</th>
+<th style="text-align:right">伪元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:active</td>
+<td style="text-align:right">::after</td>
+</tr>
+<tr>
+<td style="text-align:left">:focus</td>
+<td style="text-align:right">::before</td>
+</tr>
+<tr>
+<td style="text-align:left">:hover</td>
+<td style="text-align:right">::first-line</td>
+</tr>
+<tr>
+<td style="text-align:left">:link</td>
+<td style="text-align:right">::first-letter</td>
+</tr>
+<tr>
+<td style="text-align:left">:visited</td>
+<td style="text-align:right">::placeholder</td>
+</tr>
+<tr>
+<td style="text-align:left">:first-child</td>
+<td style="text-align:right">::selection</td>
+</tr>
+<tr>
+<td style="text-align:left">:lang</td>
+</tr>
+<tr>
+<td style="text-align:left">。。。</td>
+</tr>
+</tbody>
+</table>
+<p>我是来打家劫舍的，还不快速速交出银两。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
+&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
     
     </summary>
     
@@ -293,88 +449,6 @@
     <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本 - 副本/</id>
     <published>2017-03-30T00:15:23.000Z</published>
     <updated>2017-06-01T05:19:41.797Z</updated>
-    
-    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
-<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
-<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
-<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
-</blockquote>
-<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
-<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
-<blockquote>
-<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
-<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
-</blockquote>
-<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
-<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
-<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
-<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
-<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">伪类</th>
-<th style="text-align:right">伪元素</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">:active</td>
-<td style="text-align:right">::after</td>
-</tr>
-<tr>
-<td style="text-align:left">:focus</td>
-<td style="text-align:right">::before</td>
-</tr>
-<tr>
-<td style="text-align:left">:hover</td>
-<td style="text-align:right">::first-line</td>
-</tr>
-<tr>
-<td style="text-align:left">:link</td>
-<td style="text-align:right">::first-letter</td>
-</tr>
-<tr>
-<td style="text-align:left">:visited</td>
-<td style="text-align:right">::placeholder</td>
-</tr>
-<tr>
-<td style="text-align:left">:first-child</td>
-<td style="text-align:right">::selection</td>
-</tr>
-<tr>
-<td style="text-align:left">:lang</td>
-</tr>
-<tr>
-<td style="text-align:left">。。。</td>
-</tr>
-</tbody>
-</table>
-<p>我是来打家劫舍的，还不快速速交出银两。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
-&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
-    
-    </summary>
-    
-      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
-    
-      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
-    <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-06-01T05:19:35.875Z</updated>
     
     <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
 <p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
