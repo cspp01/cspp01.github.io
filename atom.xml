@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ccblog.win/"/>
-  <updated>2017-06-06T06:28:09.436Z</updated>
+  <updated>2017-06-09T09:51:54.483Z</updated>
   <id>http://www.ccblog.win/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://www.ccblog.win/2017/06/09/%E4%B8%80%E7%A7%8D%E7%BB%9F%E4%B8%80%E5%9B%BE%E6%A0%87%E5%A4%A7%E5%B0%8F%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.ccblog.win/2017/06/09/一种统一图标大小的方法/</id>
+    <published>2017-06-09T09:53:10.001Z</published>
+    <updated>2017-06-09T09:51:54.483Z</updated>
+    
+    <content type="html"><![CDATA[<p>好东西和好的小技巧不能藏着，掖着，一定要告诉大家，与大家一起分享。<br>今天分享一个设计统一图标大小的方法来自简书上的妖叶秋的分享。<br>当我们想要在整理设计稿中出现的图标，整理除了汇总之外，还需要重新调整一下图标的大小，使他们看起来“差不多大”。想要弄成一致性和统一性，非常的麻烦和耗时。于是作者<br>最后在谷歌的Material Design找到了一种规定的方式，特此来跟大家分享一下。<br>统一图标大小的模型<br><img src="http://upload-images.jianshu.io/upload_images/804591-f162955a9267ef6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br>上图就是我们今天要跟大家分享的一个统一图标大小的模型。</p>
+<p>我们先举例制作一套：图标大小为48px*48px的 。如果你还需要其他尺寸的图标可以做完之后等比放缩即可。那你设计的图标最好是矢量的或者是形状图标。</p>
+<p>谷歌官方规定Material Design 图标的形状类型分为三种：<br>圆形、方形和矩形。<br>其中圆形的半径为44px，方形的边长为38px，   矩形为44px*32px。</p>
+<h2 id="1、那么问题就来了？怎么判定图标应该套用那种尺寸的？"><a href="#1、那么问题就来了？怎么判定图标应该套用那种尺寸的？" class="headerlink" title="1、那么问题就来了？怎么判定图标应该套用那种尺寸的？"></a>1、那么问题就来了？怎么判定图标应该套用那种尺寸的？</h2><p>其实很简单。下面教你一种方法是：将图标与上图的模板居中对齐，然后中心不动，放大图标使之图标依次碰到三种形状的边界，填充最满的那个形状的尺寸就是该图标需要规定的尺寸。<br>如下图，依次将设置图标放大并使之接触到不同形状的边界，可以看到在圆形里，该图标最大，证明设置图标最匹配圆形，所以使用圆形的尺寸44px*44px。<br>统一图标大小的模型2<br><img src="http://upload-images.jianshu.io/upload_images/804591-6b016c5436906dc5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>上面我们举例说明都是面型图标，线型图标也是如此。手机APP图标设计常识：线形图标的风格绘制和什么样的icon图标才算是好的APP图标设计呢</p>
+<h2 id="2、下面正式定义尺寸部分："><a href="#2、下面正式定义尺寸部分：" class="headerlink" title="2、下面正式定义尺寸部分："></a>2、下面正式定义尺寸部分：</h2><h4 id="1-如果形状为方形，则图标大小为38px-38px，若只是近似的方形，则取较小的边为38px，等比放缩。"><a href="#1-如果形状为方形，则图标大小为38px-38px，若只是近似的方形，则取较小的边为38px，等比放缩。" class="headerlink" title="1. 如果形状为方形，则图标大小为38px*38px，若只是近似的方形，则取较小的边为38px，等比放缩。"></a>1. 如果形状为方形，则图标大小为38px*38px，若只是近似的方形，则取较小的边为38px，等比放缩。</h4><h4 id="2-如果形状为圆形，则取图标大小为44px-44px，若只是近似的圆形，取较大的边为44px，等比放缩。"><a href="#2-如果形状为圆形，则取图标大小为44px-44px，若只是近似的圆形，取较大的边为44px，等比放缩。" class="headerlink" title="2. 如果形状为圆形，则取图标大小为44px*44px，若只是近似的圆形，取较大的边为44px，等比放缩。"></a>2. 如果形状为圆形，则取图标大小为44px*44px，若只是近似的圆形，取较大的边为44px，等比放缩。</h4><h4 id="3-如果形状为矩形，先令短边为32px，等比放缩图标，若此时长边大于或者约等于44px，则取长边为44px，等比放缩；否则，令长边为y，取长边为（44-y）-2，再向上取整，然后进行等比放缩。"><a href="#3-如果形状为矩形，先令短边为32px，等比放缩图标，若此时长边大于或者约等于44px，则取长边为44px，等比放缩；否则，令长边为y，取长边为（44-y）-2，再向上取整，然后进行等比放缩。" class="headerlink" title="3. 如果形状为矩形，先令短边为32px，等比放缩图标，若此时长边大于或者约等于44px，则取长边为44px，等比放缩；否则，令长边为y，取长边为（44+y）/2，再向上取整，然后进行等比放缩。"></a>3. 如果形状为矩形，先令短边为32px，等比放缩图标，若此时长边大于或者约等于44px，则取长边为44px，等比放缩；否则，令长边为y，取长边为（44+y）/2，再向上取整，然后进行等比放缩。</h4><p>根据以上的规则制定出来的图标，大小就会比较统一。如下图，左边是调整前，右边是调整后。<br><img src="http://upload-images.jianshu.io/upload_images/804591-e0a196a4de65e355.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h2 id="图标统一大小的方法"><a href="#图标统一大小的方法" class="headerlink" title="图标统一大小的方法"></a>图标统一大小的方法</h2><p>下面是作者分享四个需要大家注意的四个点：</p>
+<h4 id="1-关于半像素的问题。"><a href="#1-关于半像素的问题。" class="headerlink" title="1. 关于半像素的问题。"></a>1. 关于半像素的问题。</h4><p>半像素的问题主要是在进行Android不同尺寸适配的时候，有时候开发会要求图标不能出现非整数的尺寸，不然可能图标就会糊掉。所以在设计Android端使用的图标时，注意一下这个问题。适当地对尺寸进行四舍五入一下即可。</p>
+<h4 id="2-关于iconfont的问题。"><a href="#2-关于iconfont的问题。" class="headerlink" title="2. 关于iconfont的问题。"></a>2. 关于iconfont的问题。</h4><p>现在大部分团队都会将图标转换为iconfont，这样可以缩小整个项目的大小。图标在转换为iconfont的时候，会忽略所有的线条（包括填充色块的边）。<br>所以，如果图标中有线条，则需要利用高度为1px的矩形代替，色块的边长需要用色块叠加来替代。<br>披萨APP界面设计</p>
+<h4 id="3-关于对齐的问题。"><a href="#3-关于对齐的问题。" class="headerlink" title="3. 关于对齐的问题。"></a>3. 关于对齐的问题。</h4><p>如果有仔细看，我这个方法指定的图标大小为48px<em>48px，但是里面有内容的部分，比如说圆形，就只会占据44px</em>44px，这时候我们当然会希望把图形放置在图标的中央。免不了就会使用对齐工具，咻咻两下，一个上下居中对齐，一个左右居中对齐，搞掂。<br>但是，慢着，如果仔细发现一下，你会发现看上去并不是居中的。这是由于人的视觉错觉造成的【2】，这时候就需要进行适当的调整，通过自己的视觉判断来进行对齐。</p>
+<h4 id="4-关于颜色统一的问题。"><a href="#4-关于颜色统一的问题。" class="headerlink" title="4. 关于颜色统一的问题。"></a>4. 关于颜色统一的问题。</h4><p>一般而言，图标设定为同一个色值（比如#999999）就能统一颜色，但是也有遇到过某个图标会显得颜色比较浅，这是因为sketch处理图形的透明度有两个地方，一个是整体的透明度（在填充选项区域的上方），一个是填充的透明度，这个往往是因为整体透明度那里有问题，修改一下即可。</p>
+<p>以上内容来源：简书妖叶秋作者的文章：<a href="http://www.jianshu.com/p/1e3dce79ad9b" target="_blank" rel="external">http://www.jianshu.com/p/1e3dce79ad9b</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好东西和好的小技巧不能藏着，掖着，一定要告诉大家，与大家一起分享。&lt;br&gt;今天分享一个设计统一图标大小的方法来自简书上的妖叶秋的分享。&lt;br&gt;当我们想要在整理设计稿中出现的图标，整理除了汇总之外，还需要重新调整一下图标的大小，使他们看起来“差不多大”。想要弄成一致性和统一性
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>bootstrap解析-排版</title>
@@ -420,10 +450,10 @@
   
   <entry>
     <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本 - 副本/</id>
     <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-06-01T05:19:35.875Z</updated>
+    <updated>2017-06-01T05:19:41.797Z</updated>
     
     <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
 <p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
@@ -502,10 +532,10 @@
   
   <entry>
     <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本 - 副本/</id>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
     <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-06-01T05:19:41.797Z</updated>
+    <updated>2017-06-01T05:19:35.875Z</updated>
     
     <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
 <p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
@@ -643,11 +673,11 @@
     
       <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
     
-      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
-    
       <category term="颜色" scheme="http://www.ccblog.win/tags/%E9%A2%9C%E8%89%B2/"/>
     
       <category term="hsl" scheme="http://www.ccblog.win/tags/hsl/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
     
   </entry>
   
