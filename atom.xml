@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.ccblog.win/"/>
-  <updated>2017-06-26T13:41:34.566Z</updated>
+  <updated>2017-06-26T13:47:03.239Z</updated>
   <id>http://www.ccblog.win/</id>
   
   <author>
@@ -17,64 +17,19 @@
   
   <entry>
     <title>HTML5探秘：用requestAnimationFrame优化Web动画</title>
-    <link href="http://www.ccblog.win/2017/06/26/HTML5%E6%8E%A2%E7%A7%98%EF%BC%9A%E7%94%A8requestAnimationFrame%E4%BC%98%E5%8C%96Web%E5%8A%A8%E7%94%BB/"/>
-    <id>http://www.ccblog.win/2017/06/26/HTML5探秘：用requestAnimationFrame优化Web动画/</id>
+    <link href="http://www.ccblog.win/2017/06/26/HTML5%E6%8E%A2%E7%A7%98%EF%BC%9A%E7%94%A8requestAnimationFrame%E4%BC%98%E5%8C%96Web%E5%8A%A8%E7%94%BB(1)/"/>
+    <id>http://www.ccblog.win/2017/06/26/HTML5探秘：用requestAnimationFrame优化Web动画(1)/</id>
     <published>2017-06-26T13:40:23.000Z</published>
-    <updated>2017-06-26T13:41:34.566Z</updated>
+    <updated>2017-06-26T13:47:03.239Z</updated>
     
     <content type="html"><![CDATA[<p>如果你从来没有开发过浏览器里的动画，那你不需要读这篇文章 🙂</p>
 <h3 id="requestAnimationFrame是什么？"><a href="#requestAnimationFrame是什么？" class="headerlink" title="requestAnimationFrame是什么？"></a>requestAnimationFrame是什么？</h3><p>在浏览器动画程序中，我们通常使用一个定时器来循环每隔几毫秒移动目标物体一次，来让它动起来。如今有一个好消息，浏览器开发商们决定：“嗨，为什么我们不在浏览器里提供这样一个API呢，这样一来我们可以为用户优化他们的动画。”所以，这个requestAnimationFrame()函数就是针对动画效果的API，你可以把它用在DOM上的风格变化或画布动画或WebGL中。</p>
 <h3 id="使用requestAnimationFrame有什么好处？"><a href="#使用requestAnimationFrame有什么好处？" class="headerlink" title="使用requestAnimationFrame有什么好处？"></a>使用requestAnimationFrame有什么好处？</h3><p>浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果。比如，通过requestAnimationFrame()，JS动画能够和CSS动画/变换或SVG SMIL动画同步发生。另外，如果在一个浏览器标签页里运行一个动画，当这个标签页不可见时，浏览器会暂停它，这会减少CPU，内存的压力，节省电池电量。</p>
-<h3 id="requestAnimationFrame的用法"><a href="#requestAnimationFrame的用法" class="headerlink" title="requestAnimationFrame的用法"></a>requestAnimationFrame的用法</h3><pre><code>// shim layer with setTimeout fallback
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();
-
-
-// usage:
-// instead of setInterval(render, 16) ....
-
-(function animloop(){
-  requestAnimFrame(animloop);
-  render();
-})();
-// place the rAF *before* the render() to assure as close to
-// 60fps with the setTimeout fallback.
-</code></pre><h3 id="对requestAnimationFrame更牢靠的封装"><a href="#对requestAnimationFrame更牢靠的封装" class="headerlink" title="对requestAnimationFrame更牢靠的封装"></a>对requestAnimationFrame更牢靠的封装</h3><p>Opera浏览器的技术师Erik Möller 把这个函数进行了封装，使得它能更好的兼容各种浏览器。你可以读一读这篇文章，但基本上他的代码就是判断使用4ms还是16ms的延迟，来最佳匹配60fps。下面就是这段代码，你可以使用它，但请注意，这段代码里使用的是标准函数，我给它加上了兼容各种浏览器引擎前缀。</p>
-<pre><code>(function() {
-    var lastTime = 0;
-    var vendors = [&apos;webkit&apos;, &apos;moz&apos;];
-    for(var x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x]+&apos;RequestAnimationFrame&apos;];
-        window.cancelAnimationFrame =
-          window[vendors[x]+&apos;CancelAnimationFrame&apos;] || window[vendors[x]+&apos;CancelRequestAnimationFrame&apos;];
-    }
-
-    if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-              timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
-
-    if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
-}());
-</code></pre><h3 id="我来看看使用requestAnimationFrame的效果"><a href="#我来看看使用requestAnimationFrame的效果" class="headerlink" title="我来看看使用requestAnimationFrame的效果"></a>我来看看使用requestAnimationFrame的效果</h3><p><a href="http://jsfiddle.net/XQpzU/4358/embedded/result%2Cjs" target="_blank" rel="external">http://jsfiddle.net/XQpzU/4358/embedded/result%2Cjs</a></p>
-<h3 id="requestAnimationFrame-API"><a href="#requestAnimationFrame-API" class="headerlink" title="requestAnimationFrame API"></a>requestAnimationFrame API</h3><pre><code>window.requestAnimationFrame(function(/* time */ time){
-  // time ~= +new Date // the unix time
-});
-</code></pre><p>回调函数里的参数可以传入时间。</p>
+<h3 id="requestAnimationFrame的用法"><a href="#requestAnimationFrame的用法" class="headerlink" title="requestAnimationFrame的用法"></a>requestAnimationFrame的用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// shim layer with setTimeout fallback</div><div class="line">window.requestAnimFrame = (function()&#123;</div><div class="line">  return  window.requestAnimationFrame       ||</div><div class="line">          window.webkitRequestAnimationFrame ||</div><div class="line">          window.mozRequestAnimationFrame    ||</div><div class="line">          function( callback )&#123;</div><div class="line">            window.setTimeout(callback, 1000 / 60);</div><div class="line">          &#125;;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"></div><div class="line">// usage:</div><div class="line">// instead of setInterval(render, 16) ....</div><div class="line"></div><div class="line">(function animloop()&#123;</div><div class="line">  requestAnimFrame(animloop);</div><div class="line">  render();</div><div class="line">&#125;)();</div><div class="line">// place the rAF *before* the render() to assure as close to</div><div class="line">// 60fps with the setTimeout fallback.</div></pre></td></tr></table></figure>
+<h3 id="对requestAnimationFrame更牢靠的封装"><a href="#对requestAnimationFrame更牢靠的封装" class="headerlink" title="对requestAnimationFrame更牢靠的封装"></a>对requestAnimationFrame更牢靠的封装</h3><p>Opera浏览器的技术师Erik Möller 把这个函数进行了封装，使得它能更好的兼容各种浏览器。你可以读一读这篇文章，但基本上他的代码就是判断使用4ms还是16ms的延迟，来最佳匹配60fps。下面就是这段代码，你可以使用它，但请注意，这段代码里使用的是标准函数，我给它加上了兼容各种浏览器引擎前缀。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line">    var lastTime = 0;</div><div class="line">    var vendors = [&apos;webkit&apos;, &apos;moz&apos;];</div><div class="line">    for(var x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) &#123;</div><div class="line">        window.requestAnimationFrame = window[vendors[x]+&apos;RequestAnimationFrame&apos;];</div><div class="line">        window.cancelAnimationFrame =</div><div class="line">          window[vendors[x]+&apos;CancelAnimationFrame&apos;] || window[vendors[x]+&apos;CancelRequestAnimationFrame&apos;];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (!window.requestAnimationFrame)</div><div class="line">        window.requestAnimationFrame = function(callback, element) &#123;</div><div class="line">            var currTime = new Date().getTime();</div><div class="line">            var timeToCall = Math.max(0, 16 - (currTime - lastTime));</div><div class="line">            var id = window.setTimeout(function() &#123; callback(currTime + timeToCall); &#125;,</div><div class="line">              timeToCall);</div><div class="line">            lastTime = currTime + timeToCall;</div><div class="line">            return id;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    if (!window.cancelAnimationFrame)</div><div class="line">        window.cancelAnimationFrame = function(id) &#123;</div><div class="line">            clearTimeout(id);</div><div class="line">        &#125;;</div><div class="line">&#125;());</div></pre></td></tr></table></figure></p>
+<h3 id="我来看看使用requestAnimationFrame的效果"><a href="#我来看看使用requestAnimationFrame的效果" class="headerlink" title="我来看看使用requestAnimationFrame的效果"></a>我来看看使用requestAnimationFrame的效果</h3><p><a href="http://jsfiddle.net/XQpzU/4358/embedded/result%2Cjs" target="_blank" rel="external">http://jsfiddle.net/XQpzU/4358/embedded/result%2Cjs</a></p>
+<h3 id="requestAnimationFrame-API"><a href="#requestAnimationFrame-API" class="headerlink" title="requestAnimationFrame API"></a>requestAnimationFrame API</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.requestAnimationFrame(function(/* time */ time)&#123;</div><div class="line">  // time ~= +new Date // the unix time</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>回调函数里的参数可以传入时间。</p>
 <h3 id="各种浏览器对requestAnimationFrame的支持情况"><a href="#各种浏览器对requestAnimationFrame的支持情况" class="headerlink" title="各种浏览器对requestAnimationFrame的支持情况"></a>各种浏览器对requestAnimationFrame的支持情况</h3><p>谷歌浏览器，火狐浏览器，IE10+都实现了这个函数，即使你的浏览器很古老，上面的对requestAnimationFrame封装也能让这个方法在IE8/9上不出错。</p>
 <p>本文转载自 <a href="http://www.webhek.com/post/requestanimationframe.html" target="_blank" rel="external">http://www.webhek.com/post/requestanimationframe.html</a></p>
 ]]></content>
@@ -456,88 +411,6 @@ window.requestAnimFrame = (function(){
   
   <entry>
     <title>伪类和伪元素的区别</title>
-    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本 - 副本/</id>
-    <published>2017-03-30T00:15:23.000Z</published>
-    <updated>2017-06-01T05:19:41.797Z</updated>
-    
-    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
-<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
-<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
-<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
-</blockquote>
-<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
-<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
-<blockquote>
-<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
-<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
-</blockquote>
-<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
-<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
-<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
-<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
-<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">伪类</th>
-<th style="text-align:right">伪元素</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">:active</td>
-<td style="text-align:right">::after</td>
-</tr>
-<tr>
-<td style="text-align:left">:focus</td>
-<td style="text-align:right">::before</td>
-</tr>
-<tr>
-<td style="text-align:left">:hover</td>
-<td style="text-align:right">::first-line</td>
-</tr>
-<tr>
-<td style="text-align:left">:link</td>
-<td style="text-align:right">::first-letter</td>
-</tr>
-<tr>
-<td style="text-align:left">:visited</td>
-<td style="text-align:right">::placeholder</td>
-</tr>
-<tr>
-<td style="text-align:left">:first-child</td>
-<td style="text-align:right">::selection</td>
-</tr>
-<tr>
-<td style="text-align:left">:lang</td>
-</tr>
-<tr>
-<td style="text-align:left">。。。</td>
-</tr>
-</tbody>
-</table>
-<p>我是来打家劫舍的，还不快速速交出银两。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
-&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
-    
-    </summary>
-    
-      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
-    
-    
-      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
-    
-      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>伪类和伪元素的区别</title>
     <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC/"/>
     <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本/</id>
     <published>2017-03-30T00:15:23.000Z</published>
@@ -701,6 +574,88 @@ window.requestAnimFrame = (function(){
   </entry>
   
   <entry>
+    <title>伪类和伪元素的区别</title>
+    <link href="http://www.ccblog.win/2017/03/30/%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>http://www.ccblog.win/2017/03/30/伪类和伪元素的区别 - 副本 - 副本/</id>
+    <published>2017-03-30T00:15:23.000Z</published>
+    <updated>2017-06-01T05:19:41.797Z</updated>
+    
+    <content type="html"><![CDATA[<p>伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。</p>
+<p>其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使用方式上都做了明确的区分。从伪类还是使用一个冒号：，但是伪元素是使用两个：可了解。那他们到底怎么区分的呢。</p>
+<h3 id="css3之前的伪类和伪元素"><a href="#css3之前的伪类和伪元素" class="headerlink" title="css3之前的伪类和伪元素"></a>css3之前的伪类和伪元素</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><blockquote>
+<p>先来看看w3c在css3之前对他们的解释<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于向某些选择器设置特殊效果。<br>好吧，你没看错，他们的解释一样。</p>
+</blockquote>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>比如 :hover, :link, :nth-child(n), :focus, :lang 等<br>伪元素<br>比如 :after, :before, :firste-letter, :first-line<br>你说解释一样，使用一样，怪不得之前好多人对他们分不清，其实这个锅是w3c的。</p>
+<h3 id="css3的伪类和伪元素"><a href="#css3的伪类和伪元素" class="headerlink" title="css3的伪类和伪元素"></a>css3的伪类和伪元素</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>还是先来看看w3c在css3中对他们的解释</p>
+<blockquote>
+<p>伪类存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息。</p>
+<p>伪元素在DOM树中创建了一些抽象元素，这些抽象元素是不存在于文档语言里的。比如：documen接口不提供访问元素内容的第一个字或者第一行的机制，而伪元素可以使开发者可以提取到这些信息。并且，一些伪元素可以使开发者获取到不存在于源文档中的内容（比如常见的::before,::after）</p>
+</blockquote>
+<h4 id="伪类-1"><a href="#伪类-1" class="headerlink" title="伪类"></a>伪类</h4><p>概念解读<br>1.找到那些不存在于DOM树中的信息。如：:hover, :link 等悬浮和未被访问的链接的状态就属于不存在于DOM树中的信息。<br>2.不能被常规CSS选择器获取到的信息。如：:target它就属于。</p>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>概念解读<br>伪元素是在文档中创建了一个元素，::after, ::before可能更直观也更好理解，::first-line, ::first-letter等可能不是那么直观，但其实照他的解释，::first-line, ::first-letter等也是先创建个元素，然后再把第一行或者第一个字符放进这个容器里，然后就是你给这个容器添加样式了。</p>
+<p>其实伪类就是为了1.方便获取元素和2.获取到css无法获取到的状态等信息<br>而伪元素就是给文本中添加一个虚拟的元素，目的是对内容信息进行修饰和辅助</p>
+<h4 id="伪类和伪元素区别"><a href="#伪类和伪元素区别" class="headerlink" title="伪类和伪元素区别"></a>伪类和伪元素区别</h4><p>1.伪类使用一个冒号：，伪元素使用两个冒号：<br>2.伪类说白了是为了弥补普通选择器的不足，来获取更多信息，而伪元素目的是对内容信息进行修饰<br>3.伪类可以同时使用多个，伪元素只能使用一个，并且伪元素必须处于选择器语句的最后</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>1.伪元素如果要兼容ie8，还是用一个冒号：<br>2.在css3中新加的伪元素必须写两个冒号：</p>
+<h4 id="目前伪类和伪元素"><a href="#目前伪类和伪元素" class="headerlink" title="目前伪类和伪元素"></a>目前伪类和伪元素</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">伪类</th>
+<th style="text-align:right">伪元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:active</td>
+<td style="text-align:right">::after</td>
+</tr>
+<tr>
+<td style="text-align:left">:focus</td>
+<td style="text-align:right">::before</td>
+</tr>
+<tr>
+<td style="text-align:left">:hover</td>
+<td style="text-align:right">::first-line</td>
+</tr>
+<tr>
+<td style="text-align:left">:link</td>
+<td style="text-align:right">::first-letter</td>
+</tr>
+<tr>
+<td style="text-align:left">:visited</td>
+<td style="text-align:right">::placeholder</td>
+</tr>
+<tr>
+<td style="text-align:left">:first-child</td>
+<td style="text-align:right">::selection</td>
+</tr>
+<tr>
+<td style="text-align:left">:lang</td>
+</tr>
+<tr>
+<td style="text-align:left">。。。</td>
+</tr>
+</tbody>
+</table>
+<p>我是来打家劫舍的，还不快速速交出银两。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;伪类和伪元素作为前端搞事情的各位应该常听说，而且也一直在使用着，那他们到底真正的有什么区别呢。下面咱们就说说。&lt;/p&gt;
+&lt;p&gt;其实在css1和css2中伪类和伪元素没有明确区分开来，从都是使用一个冒号：可了解。但这明显是不对的，所以在css3中对伪类和伪元素无论是概念还是使
+    
+    </summary>
+    
+      <category term="css" scheme="http://www.ccblog.win/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>纯css点击效果</title>
     <link href="http://www.ccblog.win/2017/03/20/%E7%BA%AFcss%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C/"/>
     <id>http://www.ccblog.win/2017/03/20/纯css点击效果/</id>
@@ -761,11 +716,11 @@ window.requestAnimFrame = (function(){
     
       <category term="css" scheme="http://www.ccblog.win/tags/css/"/>
     
-      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
-    
       <category term="颜色" scheme="http://www.ccblog.win/tags/%E9%A2%9C%E8%89%B2/"/>
     
       <category term="hsl" scheme="http://www.ccblog.win/tags/hsl/"/>
+    
+      <category term="css3" scheme="http://www.ccblog.win/tags/css3/"/>
     
   </entry>
   
