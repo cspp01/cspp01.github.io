@@ -4,16 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
-    <title>tag: conci | conci</title>
-    <meta name="description" content="求知若饥 虚心若愚">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cc">
-<meta property="og:url" content="http://www.ccblog.win/tags/conci/index.html">
+    <title>post | conci</title>
+    <meta name="description" content="今天通过一个简单的列子来演示怎么在npm发布自己的包。 你需要先下载安装node.js发布包 新建个文件夹，这里命名为test110，， 然后再在test110下新建一个lib文件夹。 创建package.json,在test110文件夹下，右键选择git bash here输入命令1npm init   然后name输入test110，然后一路回车，最后ctrl + c结束,  创建readme">
+<meta name="keywords" content="javascript,npm,node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在npm发布一个自己的包">
+<meta property="og:url" content="http://www.ccblog.win/2017/07/17/在npm发布一个自己的包/index.html">
 <meta property="og:site_name" content="cc">
-<meta property="og:description" content="求知若饥 虚心若愚">
+<meta property="og:description" content="今天通过一个简单的列子来演示怎么在npm发布自己的包。 你需要先下载安装node.js发布包 新建个文件夹，这里命名为test110，， 然后再在test110下新建一个lib文件夹。 创建package.json,在test110文件夹下，右键选择git bash here输入命令1npm init   然后name输入test110，然后一路回车，最后ctrl + c结束,  创建readme">
+<meta property="og:updated_time" content="2017-07-17T11:48:43.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cc">
-<meta name="twitter:description" content="求知若饥 虚心若愚">
+<meta name="twitter:title" content="在npm发布一个自己的包">
+<meta name="twitter:description" content="今天通过一个简单的列子来演示怎么在npm发布自己的包。 你需要先下载安装node.js发布包 新建个文件夹，这里命名为test110，， 然后再在test110下新建一个lib文件夹。 创建package.json,在test110文件夹下，右键选择git bash here输入命令1npm init   然后name输入test110，然后一路回车，最后ctrl + c结束,  创建readme">
     
         <link rel="alternate" href="true" title="cc" type="application/atom+xml">
     
@@ -112,25 +114,133 @@
 </article>
     <div id="main" class="clearfix">
         <section id="main-left" class="left">
-            
-    
+            <article id="post">
+    <h1>在npm发布一个自己的包</h1>
+    <p>
         
+            <span class="visitors">visitors
+                <span id="/2017/07/17/在npm发布一个自己的包/" class="leancloud_visitors" data-flag-title="在npm发布一个自己的包">
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+            </span>&nbsp;&nbsp;•&nbsp;&nbsp;
+        
+        
+            <span class="tag">
+                  <a class="article-category-link" href="/categories/npm/">npm</a>
+            </span>&nbsp;&nbsp;•&nbsp;&nbsp;
+        
+        <span class="date">2017.07.17</span>
+    </p>
+    <div id="page-post-content">
+        <p>今天通过一个简单的列子来演示怎么在npm发布自己的包。</p>
+<h3 id="你需要先下载安装node-js"><a href="#你需要先下载安装node-js" class="headerlink" title="你需要先下载安装node.js"></a>你需要先下载安装<a href="https://nodejs.org/" target="_blank" rel="external">node.js</a></h3><h3 id="发布包"><a href="#发布包" class="headerlink" title="发布包"></a>发布包</h3><ol>
+<li>新建个文件夹，这里命名为test110，，</li>
+<li>然后再在test110下新建一个lib文件夹。</li>
+<li>创建package.json,在test110文件夹下，右键选择git bash here输入命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>然后<code>name</code>输入<code>test110</code>，然后一路回车，最后<code>ctrl + c</code>结束,</p>
+<ol>
+<li>创建readme.md文件，在test110文件夹下,在新建一个readme.md文件（这是一个介绍你包的文件makdown文件），随便输入点什么，如<code>这是我的第一个npm包</code>。</li>
+<li><p>在lib文件夹下新建新建一个test.js文件，输入如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    fu : function() &#123;</div><div class="line">        console.log( &apos;这是我的第一个npm包&apos; );</div><div class="line">    &#125;;</div><div class="line">    module.exports = a; // 把a暴漏出去</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在test110文件夹下新建一个index.js文件（主入口文件），输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = require( &apos;./lib/test.js&apos; );</div><div class="line">module.exports = a; //把a暴漏出去</div></pre></td></tr></table></figure>
+</li>
+<li><p>包文件已经ok,结构如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-test110</div><div class="line">    -lib</div><div class="line">        -test.js</div><div class="line">    -index.js</div><div class="line">    -package.json</div><div class="line">    -readme.md</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建npm账号，两种方式<br> 一种:登录 <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a> 注册<br> 第二种：命令行注册，输入如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm adduser</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>依次输入用户名，密码，邮箱就注册成功了。注册成功会自动登录，所以现在已经在本地登录成功。<br>如果你已经有npm账号可通过与哦如下命名登录，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm login</div></pre></td></tr></table></figure></p>
+<p>输入用户名，密码就可登陆成功。</p>
+<ol>
+<li>发布包，在test110文件夹下，右键选择git bash here输入命令，输入如下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>就可发布成功，注意发布必须是登录状态下。</p>
+<ol>
+<li>这时你就可以在npm官网 <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a> , 在搜索框中输入<code>test110</code>,查询到你刚才发布的包了。</li>
+<li>更新包，你修改过包里的js文件时，同时还得修改package.json里version的版本号后才可重新发布。</li>
+</ol>
+<h3 id="应用包"><a href="#应用包" class="headerlink" title="应用包"></a>应用包</h3><ol>
+<li><p>这时你新建个文件夹（如test）就可以通过以下命令下载你发布的包了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install test110</div></pre></td></tr></table></figure>
+</li>
+<li><p>然后，在test文件夹下新建in.js文件，输入如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var test110 = require( &apos;test110&apos; );</div><div class="line">test110.fu();</div></pre></td></tr></table></figure>
+</li>
+<li><p>在test文件夹,右键选择git bash here输入命令，输入如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node in.js</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>就可以输出<code>这是我的第一个npm包</code></p>
 
-        <section id="archive" class="clearfix">
-            <header>
-                conci<span>tags</span>
-            </header>
-            
-                
-                    <article class="archive-page">
-                        <header><a href="/2017/06/01/hexo主题配置conci/">hexo主题配置conci</a></header>
-                        <time>2017,06,01</time>
-                    </article>
-                
-                
-            
-        </section>
+    </div>
     
+        <div id="page-post-tags">
+              <a class="article-tag-link" href="/tags/javascript/">javascript</a>&nbsp;/&nbsp;<a class="article-tag-link" href="/tags/node-js/">node.js</a>&nbsp;/&nbsp;<a class="article-tag-link" href="/tags/npm/">npm</a>
+        </div>
+    
+    
+        <div id="page-post-reward">
+            <label for="page-post-inp">打赏</label>
+            <input type="checkbox" id="page-post-inp">
+            <ul class="clearfix">
+                <li>
+                    <a href="javascript:void(0);">
+                        <img src="http://ooa3lxrpg.bkt.clouddn.com/wx.jpg?imageView2/2/w/180">
+                    </a>
+                    <p>微信</p>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <img src="http://ooa3lxrpg.bkt.clouddn.com/zfb.jpg?imageView2/2/w/180">
+                    </a>
+                    <p>支付宝</p>
+                </li>
+            </ul>
+        </div>
+    
+    
+<nav id="article-nav" class="clearfix">
+  
+    <a href="/2017/06/27/不用下载第三方软件，快速搭建一个本地服务/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          
+          不用下载第三方软件，快速搭建一个本地服务
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+</article>
+
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"4","bdPos":"left","bdTop":"100"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+    var cloudTieConfig = {
+        url: document.location.href,
+        sourceId: '',
+        productKey: '6f0492a87f74476e9df370e5e7ce2270',
+        target: 'cloud-tie-wrapper'
+    };
+    var yunManualLoad = true;
+    Tie.loader('aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s', true);
+</script>
+
 
 
         </section>
@@ -225,6 +335,8 @@
         
     </div>
 </div>
+            
+            <div id="warehouse"></div>
             
         </section>
     </div>
@@ -377,5 +489,18 @@
 </script>
 
 </body>
+
+<script src="/js/getTitle.js"></script>
+    <script>
+        $(function(){
+            var __warehouse=document.getElementById('warehouse');
+            var __content=document.getElementById('post');
+            var cus={
+                'title':'none',
+                'article':__content,
+            };
+            __warehouse.__newCc(cus);
+        });
+    </script>
 
 </html>
